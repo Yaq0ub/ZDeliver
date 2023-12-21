@@ -3,7 +3,7 @@ A react native application for product delivery
 
 Client project was created using `npx create-expo-app --template` and then choosing the TypeScript template.
 
-# ZDeliver Application Development Steps
+# ZDeliver Application Development Steps:
 
 ## 1. Requirements Gathering and Analysis
 ### Stakeholder Meetings
