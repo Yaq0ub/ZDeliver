@@ -6,15 +6,33 @@ Client project was created using `npx create-expo-app --template` and then choos
 # ZDeliver Application Development Steps
 
 ## 1. Requirements Gathering and Analysis
-- [ ] **Stakeholder Meetings**: Engage with stakeholders to understand needs and expectations.
-- [ ] **Requirement Documentation**: Document all functional and non-functional requirements.
-- [ ] **Feasibility Study**: Assess technical feasibility and resource availability.
+### Stakeholder Meetings
+- [ ] **Identifying Stakeholders**: List all potential stakeholders, including clients, end-users, investors, and internal teams.
+- [ ] **Planning Meetings**: Schedule meetings with the identified stakeholders. Prepare an agenda that covers key discussion points.
+- [ ] **Conducting Meetings**: Engage in discussions to understand stakeholder needs, expectations, constraints, and priorities.
+- [ ] **Gathering Requirements**: Collect detailed requirements from stakeholders. This includes feature requests, user experience expectations, performance criteria, etc.
+- [ ] **Feedback Loop**: Establish a process for ongoing communication with stakeholders to refine requirements and address new needs as they arise.
+- [ ] **Documentation**: Summarize and document the outcomes of the meetings and agreed-upon requirements.
+
+### Requirement Documentation
+- [ ] **Requirement Gathering Tools**: Select appropriate tools for documenting requirements .
+- [ ] **Functional Requirements**: Document detailed descriptions of all functionalities the app must support. This includes user interactions, process flows, data handling, etc.
+- [ ] **Non-Functional Requirements**: Record the non-functional aspects like performance criteria, security standards, scalability needs, and usability guidelines.
+- [ ] **User Stories and Use Cases**: Create user stories and use cases to represent the needs and expected behaviors from an end-user perspective.
+- [ ] **Data Requirements**: Specify data models, database requirements, and any data exchange formats.
+- [ ] **Technical Constraints**: Note any technical limitations, dependencies, and constraints that could impact development.
+- [ ] **Regulatory Compliance**: Identify any industry-specific regulations or compliance needs the app must adhere to (e.g., GDPR for handling user data).
+- [ ] **Prioritization**: Work with stakeholders to prioritize requirements based on factors like importance, urgency, and resource availability.
+- [ ] **Review and Approval**: Conduct a thorough review of the requirements document with stakeholders for validation and approval.
+- [ ] **Version Control**: Maintain version control of the documentation to track changes and updates over time.
+- [ ] **Accessibility Considerations**: Ensure that accessibility requirements are documented, especially if the app targets a diverse user base.
+- [ ] **Internationalization and Localization**: If applicable, document requirements for internationalization and localization, such as multi-language support.
 
 ## 2. Conceptualization and Design
 - [ ] **Wireframing and Prototyping**: Create wireframes for app screens.
 - [ ] **UI/UX Design**: Develop detailed UI/UX design considering platform-specific guidelines.
 - [ ] **Architecture Planning**: Decide on the application architecture (e.g., MVC, MVVM).
-- [*] **Tech Stack Selection**: react-native with expo and firebase
+- [x] **Tech Stack Selection**: react-native with expo and firebase
 
 ## 3. Environment Setup and Standards
 - [ ] **Development Environment Setup**: Configure IDEs, SDKs, and tools.
