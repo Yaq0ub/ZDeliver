@@ -7,12 +7,12 @@ Client project was created using `npx create-expo-app --template` and then choos
 
 ## 1. Requirements Gathering and Analysis
 ### Stakeholder Meetings
-- [ ] **Identifying Stakeholders**: List all potential stakeholders, including clients, end-users, investors, and internal teams.
-- [ ] **Planning Meetings**: Schedule meetings with the identified stakeholders. Prepare an agenda that covers key discussion points.
-- [ ] **Conducting Meetings**: Engage in discussions to understand stakeholder needs, expectations, constraints, and priorities.
-- [ ] **Gathering Requirements**: Collect detailed requirements from stakeholders. This includes feature requests, user experience expectations, performance criteria, etc.
-- [ ] **Feedback Loop**: Establish a process for ongoing communication with stakeholders to refine requirements and address new needs as they arise.
-- [ ] **Documentation**: Summarize and document the outcomes of the meetings and agreed-upon requirements.
+- [x] **Identifying Stakeholders**: Prospective client companies, end-users, sales representitive and future team members.
+- [x] **Planning Meetings**: Scheduled meeting with sales representitive to understand the market and end-user requirements
+- [x] **Conducting Meetings**: Conducted initial meeting with the sales representitive to understand sales strategy, target market, and potential client profiles.
+- [x] **Gathering Requirements**: Collected requirements focusing on versatile features that can be customized for different client companies. Key requirements includes customizable admin dashboard, user-friendly interface and easy to use order management with a scalable architecture.
+- [x] **Feedback Loop**: Established a weekly meeting schedule with the sales representive to keep up with updates and changes that need to be accommodated 
+- [x] **Documentation**: Documented the outcome of meetings and research finding.
 
 ### Requirement Documentation
 - [ ] **Requirement Gathering Tools**: Select appropriate tools for documenting requirements .
