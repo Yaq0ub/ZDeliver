@@ -16,6 +16,7 @@ Client project was created using `npx create-expo-app --template` and then choos
 
 ### Requirement Documentation
 - [x] **Functional Requirements**: 
+
 | Module | Requirement | Description |
 | ------ | ----------- | ----------- |
 | **Admin Module** | | |
@@ -34,6 +35,7 @@ Client project was created using `npx create-expo-app --template` and then choos
 |  | Feedback and Ratings | Rate products and services, provide feedback. |
 
 - [x] **Non-Functional Requirements**: 
+
 | Category | Requirement | Description |
 | -------- | ----------- | ----------- |
 | Performance | | Fast response times, efficient data handling. |
