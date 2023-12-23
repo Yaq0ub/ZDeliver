@@ -15,9 +15,38 @@ Client project was created using `npx create-expo-app --template` and then choos
 - [x] **Documentation**: Documented the outcome of meetings and research finding.
 
 ### Requirement Documentation
-- [ ] **Requirement Gathering Tools**: Select appropriate tools for documenting requirements .
-- [ ] **Functional Requirements**: Document detailed descriptions of all functionalities the app must support. This includes user interactions, process flows, data handling, etc.
-- [ ] **Non-Functional Requirements**: Record the non-functional aspects like performance criteria, security standards, scalability needs, and usability guidelines.
+- [x] **Functional Requirements**: 
+| Module | Requirement | Description |
+| ------ | ----------- | ----------- |
+| **Admin Module** | | |
+|  | Product Management | Ability to add, edit, and remove products. |
+|  | Order Management | Real-time display and status updates of orders. |
+|  | Delivery Management | Assign orders for pickup or delivery, integrate with map API. |
+|  | Order History | Access to comprehensive order history with search and filter. |
+|  | Reporting and Analytics | Dashboard for analytics and report generation. |
+|  | User Management | Manage admin user accounts and role-based access. |
+| **Client Module** | | |
+|  | Account Creation and Management | Mandatory phone number verification, profile management. |
+|  | Product Browsing | Interface to browse/search products, view descriptions. |
+|  | Shopping Cart | Add multiple products, edit cart items. |
+|  | Checkout Process | Secure checkout, payment gateway integration. |
+|  | Order Tracking | Real-time tracking, notifications for updates. |
+|  | Feedback and Ratings | Rate products and services, provide feedback. |
+
+- [x] **Non-Functional Requirements**: 
+| Category | Requirement | Description |
+| -------- | ----------- | ----------- |
+| Performance | | Fast response times, efficient data handling. |
+| Security | | Robust data encryption, compliance with regulations. |
+| Scalability | | Resource scaling, modular design for updates. |
+| Reliability | | High availability, regular backups, failover mechanisms. |
+| User Experience | | Intuitive interfaces, responsive design. |
+| Accessibility | | Compliance with standards, multilingual support. |
+| Legal Compliance | | Adherence to e-commerce regulations, clear terms of service. |
+| Integration | | API compatibility, integration with external services. |
+| Customer Support | | In-app support, detailed FAQ and help sections. |
+| Analytics and Reporting | | Advanced analytics, customizable reports. |
+
 - [ ] **User Stories and Use Cases**: Create user stories and use cases to represent the needs and expected behaviors from an end-user perspective.
 - [ ] **Data Requirements**: Specify data models, database requirements, and any data exchange formats.
 - [ ] **Technical Constraints**: Note any technical limitations, dependencies, and constraints that could impact development.
