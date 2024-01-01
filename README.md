@@ -36,18 +36,18 @@ Client project was created using `npx create-expo-app --template` and then choos
 
 - [x] **Non-Functional Requirements**: 
 
-| Category | Requirement | Description |
-| -------- | ----------- | ----------- |
-| Performance | | Fast response times, efficient data handling. |
-| Security | | Robust data encryption, compliance with regulations. |
-| Scalability | | Resource scaling, modular design for updates. |
-| Reliability | | High availability, regular backups, failover mechanisms. |
-| User Experience | | Intuitive interfaces, responsive design. |
-| Accessibility | | Compliance with standards, multilingual support. |
-| Legal Compliance | | Adherence to e-commerce regulations, clear terms of service. |
-| Integration | | API compatibility, integration with external services. |
-| Customer Support | | In-app support, detailed FAQ and help sections. |
-| Analytics and Reporting | | Advanced analytics, customizable reports. |
+| Requirement | Description |
+| -------- |  ----------- |
+| Performance |  Fast response times, efficient data handling. |
+| Security |  Robust data encryption, compliance with regulations. |
+| Scalability |  Resource scaling, modular design for updates. |
+| Reliability |  High availability, regular backups, failover mechanisms. |
+| User Experience |  Intuitive interfaces, responsive design. |
+| Accessibility |  Compliance with standards, multilingual support. |
+| Legal Compliance |  Adherence to e-commerce regulations, clear terms of service. |
+| Integration |  API compatibility, integration with external services. |
+| Customer Support |  In-app support, detailed FAQ and help sections. |
+| Analytics and Reporting |  Advanced analytics, customizable reports. |
 
 - [ ] **User Stories and Use Cases**: Create user stories and use cases to represent the needs and expected behaviors from an end-user perspective.
 - [ ] **Data Requirements**: Specify data models, database requirements, and any data exchange formats.
