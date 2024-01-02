@@ -21,8 +21,7 @@ Client project was created using `npx create-expo-app --template` and then choos
 | ------ | ----------- | ----------- |
 | **Admin Module** | | |
 |  | Product Management | Ability to add, edit, and remove products. |
-|  | Order Management | Real-time display and status updates of orders. |
-|  | Delivery Management | Assign orders for pickup or delivery, integrate with map API. |
+|  | Order Management | Display, status and assign orders for pickup or delivery, integrate with map API. |
 |  | Order History | Access to comprehensive order history with search and filter. |
 |  | Reporting and Analytics | Dashboard for analytics and report generation. |
 |  | User Management | Manage admin user accounts and role-based access. |
