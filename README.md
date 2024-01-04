@@ -48,9 +48,16 @@ Client project was created using `npx create-expo-app --template` and then choos
 | Customer Support |  In-app support, detailed FAQ and help sections. |
 | Analytics and Reporting |  Advanced analytics, customizable reports. |
 
-- [ ] **User Stories and Use Cases**: 
+- [ ] **Behavioral Diagrams**:
+
+Use Case diagram: 
 
 ![alt text](https://github.com/Yaq0ub/ZDeliver/blob/main/ZDeliverUseCase.png?raw=true)
+
+Activity diagram:
+
+![alt text](https://github.com/Yaq0ub/ZDeliver/blob/main/ZDeliverActivityDiagram.png?raw=true)
+
 - [ ] **Data Requirements**: Specify data models, database requirements, and any data exchange formats.
 - [ ] **Technical Constraints**: Note any technical limitations, dependencies, and constraints that could impact development.
 - [ ] **Regulatory Compliance**: Identify any industry-specific regulations or compliance needs the app must adhere to (e.g., GDPR for handling user data).
