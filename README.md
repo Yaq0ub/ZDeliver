@@ -58,6 +58,9 @@ Activity diagram:
 
 ![alt text](https://github.com/Yaq0ub/ZDeliver/blob/main/ZDeliverActivityDiagram.png?raw=true)
 
+Sequence diagram:
+![alt text](https://github.com/Yaq0ub/ZDeliver/blob/main/ZDeliverSequenceDiagram.png?raw=true)
+
 - [ ] **Data Requirements**: Specify data models, database requirements, and any data exchange formats.
 - [ ] **Technical Constraints**: Note any technical limitations, dependencies, and constraints that could impact development.
 - [ ] **Regulatory Compliance**: Identify any industry-specific regulations or compliance needs the app must adhere to (e.g., GDPR for handling user data).
