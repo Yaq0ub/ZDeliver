@@ -48,7 +48,7 @@ Client project was created using `npx create-expo-app --template` and then choos
 | Customer Support |  In-app support, detailed FAQ and help sections. |
 | Analytics and Reporting |  Advanced analytics, customizable reports. |
 
-- [ ] **Behavioral Diagrams**:
+- [x] **Behavioral Diagrams**:
 
 Use Case diagram: 
 
@@ -60,6 +60,11 @@ Activity diagram:
 
 Sequence diagram:
 ![alt text](https://github.com/Yaq0ub/ZDeliver/blob/main/ZDeliverSequenceDiagram.png?raw=true)
+
+- [ ] **Structural Diagrams**:
+
+Class Diagram:
+![alt text](https://github.com/Yaq0ub/ZDeliver/blob/main/ZDeliverClassDiagram.png?raw=true)
 
 - [ ] **Data Requirements**: Specify data models, database requirements, and any data exchange formats.
 - [ ] **Technical Constraints**: Note any technical limitations, dependencies, and constraints that could impact development.
