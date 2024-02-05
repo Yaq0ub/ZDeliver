@@ -66,6 +66,9 @@ Sequence diagram:
 Class Diagram:
 ![alt text](https://github.com/Yaq0ub/ZDeliver/blob/main/ZDeliverClassDiagram.png?raw=true)
 
+Entity Relationship Diagram:
+![alt text](https://github.com/Yaq0ub/ZDeliver/blob/main/ZDeliverERDiagram.png?raw=true)
+
 - [ ] **Data Requirements**: Specify data models, database requirements, and any data exchange formats.
 - [ ] **Technical Constraints**: Note any technical limitations, dependencies, and constraints that could impact development.
 - [ ] **Regulatory Compliance**: Identify any industry-specific regulations or compliance needs the app must adhere to (e.g., GDPR for handling user data).
