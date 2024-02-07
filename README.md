@@ -63,6 +63,9 @@ Sequence diagram:
 
 - [ ] **Structural Diagrams**:
 
+Architecture Diagram:
+![Architecture Diagram](https://github.com/Yaq0ub/ZDeliver/blob/main/ZDeliverArchitecture.png?raw=true)
+
 Class Diagram:
 ![alt text](https://github.com/Yaq0ub/ZDeliver/blob/main/ZDeliverClassDiagram.png?raw=true)
 
