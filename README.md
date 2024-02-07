@@ -61,7 +61,7 @@ Activity diagram:
 Sequence diagram:
 ![alt text](https://github.com/Yaq0ub/ZDeliver/blob/main/ZDeliverSequenceDiagram.png?raw=true)
 
-- [ ] **Structural Diagrams**:
+- [x] **Structural Diagrams**:
 
 Architecture Diagram:
 ![Architecture Diagram](https://github.com/Yaq0ub/ZDeliver/blob/main/ZDeliverArchitecture.png?raw=true)
