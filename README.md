@@ -102,14 +102,6 @@ Entity Relationship Diagram:
   - **Data Archiving and Retention Policy**:
     - Order data archived annually and retained for 7 years to comply with financial regulations.
 
-- [ ] **Technical Constraints**: Note any technical limitations, dependencies, and constraints that could impact development.
-- [ ] **Regulatory Compliance**: Identify any industry-specific regulations or compliance needs the app must adhere to (e.g., GDPR for handling user data).
-- [ ] **Prioritization**: Work with stakeholders to prioritize requirements based on factors like importance, urgency, and resource availability.
-- [ ] **Review and Approval**: Conduct a thorough review of the requirements document with stakeholders for validation and approval.
-- [ ] **Version Control**: Maintain version control of the documentation to track changes and updates over time.
-- [ ] **Accessibility Considerations**: Ensure that accessibility requirements are documented, especially if the app targets a diverse user base.
-- [ ] **Internationalization and Localization**: If applicable, document requirements for internationalization and localization, such as multi-language support.
-
 ## 2. Conceptualization and Design
 - [ ] **Wireframing and Prototyping**: Create wireframes for app screens.
 - [ ] **UI/UX Design**: Develop detailed UI/UX design considering platform-specific guidelines.
