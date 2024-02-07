@@ -72,7 +72,36 @@ Class Diagram:
 Entity Relationship Diagram:
 ![alt text](https://github.com/Yaq0ub/ZDeliver/blob/main/ZDeliverERDiagram.png?raw=true)
 
-- [ ] **Data Requirements**: Specify data models, database requirements, and any data exchange formats.
+- [x] **Data Requirements**:
+  - **Data Models**:
+    - User model: Stores user profiles with fields for name, email, phone number and order history.
+    - Product model: Includes details such as product ID, name, description, and price.
+    - Order model: Captures order details including user ID, product IDs, quantities, and status.
+
+  - **Database Requirements**:
+    - Database System: Firebase Firestore, optimized for real-time updates and complex queries.
+    - Capacity and Performance: Designed to handle up to 10,000 concurrent users and 20,000 daily transactions.
+    - Management Tools: Firebase Console for direct management and Firebase Admin SDK for programmatic database control.
+
+  - **Data Exchange Formats**:
+    - API Communication: JSON format for RESTful API endpoints.
+    - Internal Services Communication: Protobuf for efficient, type-safe data serialization.
+
+  - **Data Integrity and Validation**:
+    - Utilizing Firestore security rules for validating data on write operations.
+    - Input validation on client and server sides to prevent invalid data submission.
+
+  - **Data Security**:
+    - All data encrypted in transit using TLS.
+    - Firestore's built-in authentication and authorization for access control.
+
+  - **Data Backup and Recovery**:
+    - Daily automated backups with Google Cloud Storage.
+    - Manual trigger for on-demand backups before major updates.
+
+  - **Data Archiving and Retention Policy**:
+    - Order data archived annually and retained for 7 years to comply with financial regulations.
+
 - [ ] **Technical Constraints**: Note any technical limitations, dependencies, and constraints that could impact development.
 - [ ] **Regulatory Compliance**: Identify any industry-specific regulations or compliance needs the app must adhere to (e.g., GDPR for handling user data).
 - [ ] **Prioritization**: Work with stakeholders to prioritize requirements based on factors like importance, urgency, and resource availability.
