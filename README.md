@@ -103,9 +103,16 @@ Entity Relationship Diagram:
     - Order data archived annually and retained for 7 years to comply with financial regulations.
 
 ## 2. Conceptualization and Design
-- [ ] **Wireframing and Prototyping**: Create wireframes for app screens.
-- [ ] **UI/UX Design**: Develop detailed UI/UX design considering platform-specific guidelines.
-- [ ] **Architecture Planning**: Decide on the application architecture (e.g., MVC, MVVM).
+- [ ] **Wireframing and Prototyping**: 
+
+  - **Color Scheme**:
+    - #016592, #023A64, #FFFFFF, #000000
+
+  - **Figma Prototype**:
+    - [Figma Prototype URL](https://www.figma.com/proto/VaPsthHw7DhzHLurKYNm2G/ZDeliver?type=design&node-id=145-755&t=vGH6o7lJibQqKPXz-0&scaling=scale-down&page-id=0%3A1&starting-point-node-id=145%3A755)
+
+    - ![Wireframe](https://github.com/Yaq0ub/ZDeliver/blob/main/ZDeliverWireframe.png?raw=true)
+
 - [x] **Tech Stack Selection**: react-native with expo and firebase
 
 ## 3. Environment Setup and Standards
