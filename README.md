@@ -52,25 +52,25 @@ Client project was created using `npx create-expo-app --template` and then choos
 
 Use Case diagram: 
 
-![alt text](https://github.com/Yaq0ub/ZDeliver/blob/main/ZDeliverUseCase.png?raw=true)
+![alt text](https://github.com/Yaq0ub/ZDeliver/blob/main/images/ZDeliverUseCase.png?raw=true)
 
 Activity diagram:
 
-![alt text](https://github.com/Yaq0ub/ZDeliver/blob/main/ZDeliverActivityDiagram.png?raw=true)
+![alt text](https://github.com/Yaq0ub/ZDeliver/blob/main/images/ZDeliverActivityDiagram.png?raw=true)
 
 Sequence diagram:
-![alt text](https://github.com/Yaq0ub/ZDeliver/blob/main/ZDeliverSequenceDiagram.png?raw=true)
+![alt text](https://github.com/Yaq0ub/ZDeliver/blob/main/images/ZDeliverSequenceDiagram.png?raw=true)
 
 - [x] **Structural Diagrams**:
 
 Architecture Diagram:
-![Architecture Diagram](https://github.com/Yaq0ub/ZDeliver/blob/main/ZDeliverArchitecture.png?raw=true)
+![Architecture Diagram](https://github.com/Yaq0ub/ZDeliver/blob/main/images/ZDeliverArchitecture.png?raw=true)
 
 Class Diagram:
-![alt text](https://github.com/Yaq0ub/ZDeliver/blob/main/ZDeliverClassDiagram.png?raw=true)
+![Class Diagram](https://github.com/Yaq0ub/ZDeliver/blob/main/images/ZDeliverClassDiagram.png?raw=true)
 
 Entity Relationship Diagram:
-![alt text](https://github.com/Yaq0ub/ZDeliver/blob/main/ZDeliverERDiagram.png?raw=true)
+![Entity Relationship Diagram](https://github.com/Yaq0ub/ZDeliver/blob/main/images/ZDeliverERDiagram.png?raw=true)
 
 - [x] **Data Requirements**:
   - **Data Models**:
@@ -111,13 +111,13 @@ Entity Relationship Diagram:
   - **Figma Prototype**:
     - [Figma Prototype URL](https://www.figma.com/proto/VaPsthHw7DhzHLurKYNm2G/ZDeliver?type=design&node-id=145-755&t=vGH6o7lJibQqKPXz-0&scaling=scale-down&page-id=0%3A1&starting-point-node-id=145%3A755)
 
-    - ![Wireframe](https://github.com/Yaq0ub/ZDeliver/blob/main/ZDeliverWireframe.png?raw=true)
+    - ![Wireframe](https://github.com/Yaq0ub/ZDeliver/blob/main/images/ZDeliverWireframe.png?raw=true)
 
 - [x] **Tech Stack Selection**: react-native with expo and firebase
 
 ## 3. Environment Setup and Standards
 - [ ] **Development Environment Setup**: Configure IDEs, SDKs, and tools.
-- [ ] **Version Control**: Set up a version control system like Git.
+- [x] **Version Control**: Set up a version control system like Git.
 - [ ] **Coding Standards**: Establish coding standards for consistency.
 - [ ] **Documentation Standards**: Ensure proper documentation.
 
