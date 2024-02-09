@@ -118,8 +118,82 @@ Entity Relationship Diagram:
 ## 3. Environment Setup and Standards
 - [ ] **Development Environment Setup**: Configure IDEs, SDKs, and tools.
 - [x] **Version Control**: Set up a version control system like Git.
-- [ ] **Coding Standards**: Establish coding standards for consistency.
-- [ ] **Documentation Standards**: Ensure proper documentation.
+- [x] **Coding Standards**: Establish coding standards for consistency.
+
+# React Native App Development Coding Standards
+
+## 1. Introduction
+
+This document outlines the coding standards and best practices for our React Native application development team. It aims to ensure consistency, maintainability, and high quality across the application's codebase, facilitating efficient collaboration and project scalability.
+
+## 2. Project Structure
+
+- **Components**: Organized into feature-based directories within `components`.
+- **Screens**: Stored in `app/`, grouped by application flow.
+- **Utilities**: Reusable logic, helpers, and utilities in `utils`.
+- **Navigation**: File based routing in `app`.
+- **Assets**: Static assets like images and fonts in the `assets` directory.
+- **Constants**: Centralized management of application-wide constants in the `constants` directory
+
+## 3. Naming Conventions
+
+- **Components and Classes**: PascalCase. Example: `UserProfileScreen`.
+- **Variables and Functions**: camelCase. Example: `fetchUserData`.
+- **Constants**: UPPER_SNAKE_CASE. Example: `API_ENDPOINT`.
+- **Hooks**: Prefix with `use`. Example: `useUserProfile`.
+
+## 4. Coding Practices
+
+- Prefer functional components and hooks over class components.
+- Utilize PropTypes for prop type checking.
+- Ensure state management immutability.
+- Handle API call errors gracefully.
+- Follow the DRY principle to avoid code redundancy.
+
+## 5. Styling
+
+- Define component styles with `StyleSheet.create`.
+- Use flexbox for responsive design.
+- Global stylesheet for common styles, colors, and fonts.
+
+## 6. Testing
+
+- **Unit Tests**: Jest for individual components/functions.
+- **Integration Tests**: React Testing Library for simulating user interactions.
+- **Mocking**: Mock external modules/APIs during testing.
+
+## 7. Performance Optimization
+
+- Use `React.memo` for preventing unnecessary re-renders.
+- Optimize with `useMemo` and `useCallback` hooks.
+- Optimize image assets (resizing, compressing).
+
+## 8. Accessibility
+
+- Accessible interactive elements with meaningful labels.
+- Screen reader testing for visually impaired user accessibility.
+- Sufficient contrast ratios for text/background colors.
+
+## 9. Version Control
+
+- **Branch Naming**: Descriptive names like `feature/feature-name`, `bugfix/bug-description`.
+- **Commit Messages**: Consistent format: `<type>: <description>`. Types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`.
+
+## 10. CI/CD
+
+- CI/CD pipeline for automated builds and tests.
+- Different environments (development, staging, production) for staged deployments.
+
+## 11. Security Best Practices
+
+- Use HTTPS for external data exchanges.
+- Secure storage of sensitive information.
+- Regular updates for dependencies to mitigate vulnerabilities.
+
+## Conclusion
+
+Following these coding standards is crucial for developing a robust, scalable, and maintainable React Native application. All team members are encouraged to adhere to these guidelines and contribute to the ongoing improvement of our codebase.
+
 
 ## 4. Development Methodology
 - [ ] **Agile Methodology**: Implement an Agile framework.
