@@ -15,6 +15,13 @@ import {
   FIREBASE_MESSAGING_SENDER_ID,
   FIREBASE_APP_ID
 } from "@env"
+
+import { initializeApp } from "firebase/app";
+import { getFirestore } from 'firebase/firestore';
+import { initializeAuth, getReactNativePersistence } from "firebase/auth";
+
+import ReactNativeAsyncStorage from "@react-native-async-storage/async-storage";
+
 // Initialize Firebase
 const firebaseConfig = {
   apiKey: FIREBASE_API_KEY,
@@ -26,7 +33,19 @@ const firebaseConfig = {
   //measurementId: 'G-measurement-id',
 };
 
-export default firebaseConfig;
+// Initialize App
+const app = initializeApp(firebaseConfig)
+
+// Initialize Firestore
+const db = getFirestore(app)
+
+// Initialize Authentication
+const auth = initializeAuth(app, {
+  persistence : getReactNativePersistence(ReactNativeAsyncStorage)
+})
+
+export { db, auth }
+
 // Initialize firebase
 //export const FIREBASE_APP = initializeApp(firebaseConfig);
 //export const FIREBASE_AUTH = getAuth(FIREBASE_APP)
