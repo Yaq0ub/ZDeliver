@@ -5,6 +5,20 @@ import { SplashScreen, Stack } from 'expo-router';
 import { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
 
+//Auth
+import { User } from 'firebase/auth'
+import { initializeApp } from 'firebase/app';
+import { initializeAuth, getReactNativePersistence} from 'firebase/auth';
+import ReactNativeAsyncStorage from "@react-native-async-storage/async-storage";
+
+import firebaseConfig from "../firebaseConfig";
+
+const app = initializeApp(firebaseConfig);
+
+initializeAuth(app, {
+  persistence: getReactNativePersistence(ReactNativeAsyncStorage)
+});
+
 export {
   // Catch any errors thrown by the Layout component.
   ErrorBoundary,
@@ -46,10 +60,13 @@ function RootLayoutNav() {
   const colorScheme = useColorScheme();
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="modal" options={{ presentation: "modal" }} />
+        <Stack.Screen name="landing" options={{ headerShown: false }} />
+        <Stack.Screen name="login" options={{ presentation: "modal" }} />
+        <Stack.Screen name="register" options={{ presentation: "modal" }} />
       </Stack>
     </ThemeProvider>
   );
