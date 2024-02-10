@@ -8,7 +8,7 @@ import Colors from '../../constants/Colors';
 
 //import { useColorScheme } from "@/components/useColorScheme";
 //import { useClientOnlyValue } from "@/components/useClientOnlyValue";
-import { getAuth } from "firebase/auth";
+import {auth } from "../../firebase/firebaseConfig";
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  */
@@ -24,7 +24,7 @@ export default function TabLayout() {
   const [isLoading, setIsLoading] = useState(true);
 
   // Show landing screen if logged out
-  getAuth().onAuthStateChanged((user) => {
+  auth.onAuthStateChanged((user: any) => {
     setIsLoading(false);
     if(!user) {
       router.replace("/landing");

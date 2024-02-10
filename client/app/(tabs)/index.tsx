@@ -2,11 +2,11 @@ import { Button, StyleSheet } from "react-native";
 
 import EditScreenInfo from "../../components/EditScreenInfo";
 import { Text, View } from "../../components/Themed";
-import { getAuth, signOut } from "firebase/auth";
+import { signOut, getAuth } from "firebase/auth";
+
 
 export default function TabOneScreen() {
   const { currentUser } = getAuth();
-
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{currentUser?.email}</Text>
