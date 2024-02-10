@@ -1,9 +1,14 @@
+import React, { useState } from "react"
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
-import { Pressable, useColorScheme } from 'react-native';
+import { Pressable, Text, useColorScheme } from 'react-native';
+import { router } from 'expo-router';
 
 import Colors from '../../constants/Colors';
 
+//import { useColorScheme } from "@/components/useColorScheme";
+//import { useClientOnlyValue } from "@/components/useClientOnlyValue";
+import { getAuth } from "firebase/auth";
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  */
@@ -16,11 +21,26 @@ function TabBarIcon(props: {
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Show landing screen if logged out
+  getAuth().onAuthStateChanged((user) => {
+    setIsLoading(false);
+    if(!user) {
+      router.replace("/landing");
+    }
+  })
+
+  // Show Loading if isLoading is true
+  if (isLoading) return <Text style={{}}> Loading...</Text>
 
   return (
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        // Disable the static render of the header on web
+        // to prevent a hydration error in React Navigation v6.
+        //headerShown: useClientOnlyValue(false, true),
       }}>
       <Tabs.Screen
         name="index"
