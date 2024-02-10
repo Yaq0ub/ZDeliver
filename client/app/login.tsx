@@ -39,7 +39,7 @@ export default function Login({ navigation }: { navigation: any }) {
         setLoading(false);
         router.replace('/(tabs)');
       } else {
-        // Handle registration failure (this might need adjustments based on your error handling)
+        // Handle login failure (this might need adjustments based on your error handling)
         Alert.alert("Login Failed", "Please try again.");
       }
     } catch (error) {
