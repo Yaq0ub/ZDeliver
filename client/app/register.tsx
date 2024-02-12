@@ -13,7 +13,7 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import Colors from "../constants/Colors";
-import { registerUser } from "../Auth/registerUser";
+import { registerUser } from "../services/Auth/registerUser";
 import { router } from 'expo-router';
 
 const { width, height } = Dimensions.get("window");

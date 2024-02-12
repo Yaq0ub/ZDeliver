@@ -13,10 +13,10 @@ import {
 import React, { useState } from "react";
 import Colors from "../constants/Colors";
 
-import { loginUser } from "../Auth/loginUser";
+import { loginUser } from "../services/Auth/loginUser";
 import { router } from "expo-router";
 
-const { width, height } = Dimensions.get("window");
+const {  height } = Dimensions.get("window");
 let top;
 if (Platform.OS === "ios") {
   top = height * 0.02;
@@ -80,7 +80,7 @@ export default function Login({ navigation }: { navigation: any }) {
         </View>
         {/* Forgot Password */}
         <View style={styles.forgotContainer}>
-          <TouchableOpacity onPress={() => navigation.push("Forgot")}>
+          <TouchableOpacity onPress={() => router.replace('/forgot')}>
             <Text style={styles.forgotText}>Forgot Password?</Text>
           </TouchableOpacity>
         </View>
