@@ -1,22 +1,15 @@
-import { Button, StyleSheet } from "react-native";
-
-import EditScreenInfo from "../../components/EditScreenInfo";
-import { Text, View } from "../../components/Themed";
-import { signOut, getAuth } from "firebase/auth";
-
+import FilterPicker from "../../components/filterPicker";
+import React, { useState } from "react";
+import { StyleSheet,  View } from "react-native";
 
 export default function TabOneScreen() {
-  const { currentUser } = getAuth();
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{currentUser?.email}</Text>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
-      <Button title="Sign Out" onPress={() => signOut(getAuth())} />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
+      {/* Filter Picker Container */}
+      <View style={styles.filterPickerContainer}>
+        <FilterPicker />
+      </View>
     </View>
   );
 }
@@ -24,16 +17,10 @@ export default function TabOneScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
   },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: "80%",
+  filterPickerContainer: {
+    height: '5%', // Make the filter picker occupy 5% of the screen
+    width: '100%', // Ensure it spans the full width
+    justifyContent: 'center', // Center the filters vertically within the picker
   },
 });
