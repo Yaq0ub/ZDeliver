@@ -32,7 +32,7 @@ export default function TabLayout() {
             <Ionicons
               name="chevron-back"
               size={25}
-              color={"black"}
+              color={Colors.light}
               style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
             />
           )}
@@ -54,11 +54,16 @@ export default function TabLayout() {
   return (
 
     <Tabs
+      
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: Colors.light,
+        tabBarActiveBackgroundColor: Colors.primary,
+        tabBarInactiveBackgroundColor: Colors.primary,
         // Disable the static render of the header on web
         // to prevent a hydration error in React Navigation v6.
         //headerShown: useClientOnlyValue(false, true),
+        headerStyle:{backgroundColor:Colors.primary},
+          headerTintColor: Colors.light
       }}>
 
       <Tabs.Screen
@@ -73,13 +78,14 @@ export default function TabLayout() {
                   <FontAwesome
                     name="shopping-cart"
                     size={25}
-                    color={"black"}
+                    color={Colors.light}
                     style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
                   />
                 )}
               </Pressable>
             </Link>
           ),
+
         }}
       />
       <Tabs.Screen
@@ -87,7 +93,6 @@ export default function TabLayout() {
         options={{
           title: 'Account',
           tabBarIcon: ({ color }) => <TabBarIcon name="gear" color={color} />,
-          headerTitleAlign: 'center'
         }}
       />
 
@@ -97,8 +102,7 @@ export default function TabLayout() {
           href: null,
           headerTitle: 'Addresses',
           headerTitleAlign: 'center',
-          headerLeft: () => (<BackButton />)
-
+          headerLeft: () => (<BackButton />),
         }}
       />
       
@@ -108,7 +112,9 @@ export default function TabLayout() {
           href: null,
           headerTitle: 'Logout',
           headerTitleAlign: 'center',
-          headerLeft: () => (<BackButton />)
+          headerLeft: () => (<BackButton />),
+          headerStyle:{backgroundColor:Colors.primary},
+          headerTintColor: Colors.light
         }}
       />
       <Tabs.Screen

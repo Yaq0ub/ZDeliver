@@ -53,7 +53,7 @@ export default function Login({ navigation }: { navigation: any }) {
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
     <View style={styles.container}>
       <View style={styles.loginHeader}>
-        <Text style={styles.loginHeaderText}>Let's sign you in 🚀</Text>
+        <Text style={styles.loginHeaderText}>Login</Text>
       </View>
 
       <View style={styles.loginContainer}>
@@ -97,8 +97,8 @@ export default function Login({ navigation }: { navigation: any }) {
 
         <View style={styles.signupGroup}>
           <Text style={styles.new}>New here?</Text>
-          <TouchableOpacity onPress={() => navigation.push("Signup")}>
-            <Text style={styles.signup}>Sign Up</Text>
+          <TouchableOpacity onPress={() => router.replace("register" as any)}>
+            <Text style={styles.signup}>Register</Text>
           </TouchableOpacity>
         </View>
       </View>

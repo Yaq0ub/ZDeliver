@@ -4,7 +4,7 @@ import { useFonts } from 'expo-font';
 import { SplashScreen, Stack } from 'expo-router';
 import { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
-
+import Colors from '../constants/Colors';
 export {
   // Catch any errors thrown by the Layout component.
   ErrorBoundary,
@@ -47,15 +47,48 @@ function RootLayoutNav() {
 
   return (
     //<ThemeProvider value={colorScheme === "light" ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="cart" options={{ presentation: "modal" , title:'Cart'}} />
-        <Stack.Screen name="checkout" options={{title:"Checkout"}} />
-        <Stack.Screen name="landing" options={{ headerShown: false }} />
-        <Stack.Screen name="login" options={{ presentation: "modal" }} />
-        <Stack.Screen name="register" options={{ presentation: "modal" }} />
-        
-      </Stack>
+    <Stack>
+      <Stack.Screen name="(tabs)" options={{ headerShown: false, }} />
+      <Stack.Screen name="cart" options={{
+        presentation: "modal",
+        title: 'Cart',
+        headerStyle: { backgroundColor: Colors.primary },
+        headerTintColor: Colors.light
+
+      }} />
+      <Stack.Screen name="checkout" options={{ 
+        presentation: "modal", 
+        title: "Checkout",
+        headerStyle: { backgroundColor: Colors.primary },
+        headerTintColor: Colors.light 
+        }} />
+      <Stack.Screen name="landing" options={{ headerShown: false }} />
+      <Stack.Screen name="login" options={{
+        presentation: "modal",
+        headerTintColor: Colors.light,
+        headerStyle: {
+          backgroundColor: Colors.primary,
+        },
+        title: ''
+      }} />
+      <Stack.Screen name="register" options={{
+        presentation: "modal",
+        headerTintColor: Colors.light,
+        headerStyle: {
+          backgroundColor: Colors.primary,
+        },
+        title: ''
+      }} />
+      <Stack.Screen name="placed" options={{
+        presentation: "modal",
+        headerTintColor: Colors.light,
+        headerStyle: {
+          backgroundColor: Colors.primary,
+        },
+        title: ''
+      }} />
+
+    </Stack>
     //</ThemeProvider>
   );
 }

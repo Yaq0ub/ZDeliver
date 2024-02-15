@@ -1,10 +1,13 @@
-import { StyleSheet } from 'react-native';
-
-import EditScreenInfo from '../../components/EditScreenInfo';
+import { StyleSheet, Dimensions, Platform } from 'react-native';
 import { Text, View } from '../../components/Themed';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { router } from 'expo-router'
 
+import Colors from '../../constants/Colors';
+const screenHeight = Dimensions.get('window').height; // Get screen height
+const paddingVerticalPercentage = screenHeight * 0.03; // Calculate 3% of screen height
+
+import { ACCOUNT_ROUTES } from '../../constants/consts';
 export default function AccountScreen() {
 
   const handleNavigation = (link:any) => {
@@ -12,27 +15,18 @@ export default function AccountScreen() {
       router.push("/(tabs)/" + link as any);
     }
   };
-  const TabItemsProps = [
-    { label: 'Manage account', route: "manage" },
-    { label: 'Orders', route: "orders" },
-    { label: 'Payment', route: "payments" },
-    { label: 'Addresses', route: "addresses" },
-    { label: 'Privacy', route: "privacy" },
-    { label: 'Notifications', route: "notifications" },
-    { label: 'Logout', route: "logout" },];
 
   return (
     <View style={styles.container}>
-      {TabItemsProps.map((item, index) => (
+      {ACCOUNT_ROUTES.map((item, index) => (
 
         <TouchableOpacity
           key={index}
           style={styles.tab}
-          onPress={() => handleNavigation(item.route)} // Call handleNavigation with navTo as parameter
+          onPress={() => handleNavigation(item.route)} 
           disabled={!item.route}
         >
-          <Text style={styles.tabText}>{item.label}</Text>
-          {item.route && (<Text >X</Text>)}
+          <Text style={styles.text}>{item.label}</Text>
         </TouchableOpacity>
 
       ))}
@@ -41,39 +35,35 @@ export default function AccountScreen() {
 }
 
 const styles = StyleSheet.create({
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
   container: {
     flex: 1,
-    justifyContent: 'center',
-    //justifyContent: "space-between",
-    alignItems: 'center',
-    //paddingHorizontal: 16,
-    //paddingTop: 16,
-    //padding: SIZES.medium,
-    //backgroundColor: COLORS.white
-  },
-  header: {
-    //fontFamily: FONT.DMregular,
-    //fontSize: SIZES.xLarge,
-    //fontWeight: 'bold',
-    //marginBottom: 16,
-  },
-  divider: {
-    //height: 1,
-    //backgroundColor: '#CCCCCC',
-    //marginBottom: 16,
+    justifyContent: "space-between",
+    paddingHorizontal: paddingVerticalPercentage, // Adjust container padding to prevent overflow
+    paddingTop: paddingVerticalPercentage, // Add padding at the top if necessary
   },
   tab: {
     flexDirection: 'row',
-    //justifyContent: 'space-between',
-    //alignItems: 'center',
-    //marginBottom: 16,
-    //width: '100%', // Ensure the tab takes up the full width
+    justifyContent: 'center', // Center content within each tab
+    alignItems: 'center', // Center items vertically within the tab
+    width: '100%', // Ensure tabs take up the full width
+    paddingVertical: paddingVerticalPercentage, // Inner padding for tab content, adjusted for better touch area
+    backgroundColor: Colors.primary, // Use a color from the constants for consistency
+    borderRadius: 15, // Rounded corners for tabs
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.3,
+        shadowRadius: 2,
+      },
+      android: {
+        elevation: 20, // Adjust elevation for shadow intensity
+      },
+    }),
+    marginBottom: 20, // Add space between tabs
   },
-  tabText: {
-    //fontSize: 18,
+  text: {
+    textAlign: 'center', // Ensure text is centered within the tab
+    color: Colors.light
   },
 });
