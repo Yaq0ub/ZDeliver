@@ -1,9 +1,10 @@
 import { View, Text, Button, StyleSheet } from 'react-native'
 import React from 'react'
 import { signOut, getAuth } from "firebase/auth";
-
-import Colors from '../../constants/Colors';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+
+import styles from '../../styles/logout.styles'
+
 const logout = () => {
   const { currentUser } = getAuth();
   const handleSignOut = () =>{signOut(getAuth())}
@@ -21,27 +22,4 @@ const logout = () => {
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  button: {
-    marginTop: 20,
-    width: "100%",
-    height: 50,
-    backgroundColor: Colors.primary,
-    borderRadius: 8,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  buttonText:{
-    color: Colors.light
-  }
-})
 export default logout

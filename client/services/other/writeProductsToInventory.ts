@@ -1,4 +1,5 @@
-import { PRODUCTS_IMAGE_PATH } from "../../constants/consts";
+/*
+import { PRODUCTS_IMAGE_PATH } from "../../constants/Consts";
 import { db } from "../../firebase/firebaseConfig";
 import { doc, setDoc } from 'firebase/firestore';
 
@@ -29,3 +30,4 @@ const writeProductsToInventory = async () => {
 };
 
 export default writeProductsToInventory;
+*/
