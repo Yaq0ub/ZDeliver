@@ -4,73 +4,77 @@ import { View, Text, TextInput, Button} from 'react-native';
 
 import styles from '../../styles/manage.styles'
 
+import { router } from 'expo-router';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 const ManageAccount = () => {
+  const handleChangePassword = () => {router.push("/(tabs)/")}
   return (
     <View style={styles.container}>
       <View style={styles.topContainer}>
         {/* Name */}
-        <Text style={styles.label}>Name</Text>
-        <View style={styles.inputRow}>
-          <TextInput 
-            placeholder="Name" 
-            style={styles.input} 
-          />  
+        <View style={styles.fieldContainer}>
+            <Text style={styles.fieldText}>Name</Text>
+            <TextInput
+              style={styles.fieldInput}
+              placeholder="Enter your name"
+            />
         </View>
 
-        
-        <Text style={styles.label}>Mobile#:</Text>
-        <View style={styles.inputRow}>
-          <TextInput 
-            placeholder="Phone Number" 
-            style={styles.input} 
-          />
+        <View style={styles.fieldContainer}>
+            <Text style={styles.fieldText}>Mobile#</Text>
+            <TextInput
+              style={styles.fieldInput}
+              placeholder="Enter your mobile #"
+            />
         </View>
 
-        <Text style={styles.label}>Email</Text>
-        <View style={styles.inputRow}>
-          
-          <TextInput 
-            placeholder="Email" 
-            style={styles.input} 
-          />
+        <View style={styles.fieldContainer}>
+            <Text style={styles.fieldText}>Email</Text>
+            <TextInput
+              style={styles.fieldInput}
+              placeholder="Enter your email"
+            />
         </View>
 
         {/* Password Change Section */}
         <Text style={styles.sectionTitle}>Change Password</Text>
 
-        <Text style={styles.label}>Old Password</Text>
-        <View style={styles.inputRow}>
-          <TextInput 
-            placeholder="Old Password" 
-            secureTextEntry={true}
-            style={styles.input} 
-          />
+        <View style={styles.fieldContainer}>
+            <Text style={styles.fieldText}>Old Password</Text>
+            <TextInput
+              style={styles.fieldInput}
+              secureTextEntry={true}
+              placeholder="Enter your password"
+            />
         </View>
 
-        <Text style={styles.label}>New Password</Text>
-        <View style={styles.inputRow}>
-          <TextInput 
-            placeholder="New Password" 
-            secureTextEntry={true}
-            style={styles.input} 
-          />
+        <View style={styles.fieldContainer}>
+            <Text style={styles.fieldText}>New Password</Text>
+            <TextInput
+              style={styles.fieldInput}
+              secureTextEntry={true}
+              placeholder="Enter your new password"
+            />
         </View>
 
-        <Text style={styles.label}>Repeat Password</Text>
-        <View style={styles.inputRow}>
-          <TextInput 
-            placeholder="Repeat Password" 
-            secureTextEntry={true}
-            style={styles.input} 
-          />
+        <View style={styles.fieldContainer}>
+            <Text style={styles.fieldText}>Repeat New Password</Text>
+            <TextInput
+              style={styles.fieldInput}
+              secureTextEntry={true}
+              placeholder="Repeat new password"
+            />
         </View>
       </View>
 
       <View style={styles.botContainer}>
-        <Button 
-          title="Change Password" 
-          onPress={() => {}} 
-        />
+        <View style={styles.button}>
+          <TouchableOpacity onPress={handleChangePassword}>
+            <Text style={styles.buttonText}>
+              Change Password
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
