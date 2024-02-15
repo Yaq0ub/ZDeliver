@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { View, FlatList, Image, StyleSheet, Text } from 'react-native';
-import readProductsInventory from '../services/other/readProductsInventory';
 
 // Import Styles
 import styles from '../styles/components/ProductList.styles'
@@ -17,15 +16,15 @@ type ProductItemType = {
 // Add selectedFilter to the component props
 interface ProductListProps {
   selectedFilter: string;
+  productsInventory: any;
 }
 
-const ProductList: React.FC<ProductListProps> = ({ selectedFilter }) => {
+const ProductList: React.FC<ProductListProps> = ({ selectedFilter, productsInventory}) => {
   // State to hold the array of products
   const [products, setProducts] = useState<ProductItemType[]>([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const productsInventory = await readProductsInventory();
       // Convert the object into an array suitable for FlatList
       let productArray: ProductItemType[] = Object.keys(productsInventory).map((key) => ({
         key,
