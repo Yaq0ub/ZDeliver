@@ -63,7 +63,8 @@ export default function TabLayout() {
         // to prevent a hydration error in React Navigation v6.
         //headerShown: useClientOnlyValue(false, true),
         headerStyle:{backgroundColor:Colors.primary},
-        headerTintColor: Colors.light
+        headerTintColor: Colors.light,
+        tabBarHideOnKeyboard: true
       }}>
 
       <Tabs.Screen
@@ -123,7 +124,7 @@ export default function TabLayout() {
           href: null,
           headerTitle: 'Manage',
           headerTitleAlign: 'center',
-          headerLeft: () => (<BackButton />)
+          headerLeft: () => (<BackButton />),
         }}
       />
       <Tabs.Screen
