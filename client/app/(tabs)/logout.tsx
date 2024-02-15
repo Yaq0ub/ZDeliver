@@ -1,4 +1,4 @@
-import { View, Text, Button, StyleSheet } from 'react-native'
+import { View, Text} from 'react-native'
 import React from 'react'
 import { signOut, getAuth } from "firebase/auth";
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -17,7 +17,7 @@ const logout = () => {
               Sign out
             </Text>
           </TouchableOpacity>
-        </View>
+      </View>
     </View>
   )
 }
