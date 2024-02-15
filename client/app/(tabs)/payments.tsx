@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
+import styles from '../../styles/payment.styles'
+
 const Payment = () => {
   const savedPayments: ArrayLike<any> | null | undefined = []; // Replace with your actual data
   const paymentMethods: ArrayLike<any> | null | undefined = []; // Replace with your actual data

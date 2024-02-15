@@ -9,7 +9,6 @@ import {
   Keyboard,
   KeyboardAvoidingView,
   Platform,
-  StyleSheet,
 } from 'react-native';
 // Assuming expo-router is correctly set up in your project
 // and router.push is the method you'd like to use for navigation
