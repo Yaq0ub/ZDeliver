@@ -1,28 +1,19 @@
 import {
-  StyleSheet,
   Text,
   View,
   TouchableOpacity,
   TextInput,
-  Platform,
-  Dimensions,
   TouchableWithoutFeedback,
   Keyboard,
   Alert
 } from "react-native";
 import React, { useState } from "react";
-import Colors from "../constants/Colors";
 
 import { loginUser } from "../services/Auth/loginUser";
 import { router } from "expo-router";
 
-const { height } = Dimensions.get("window");
-let top;
-if (Platform.OS === "ios") {
-  top = height * 0.02;
-} else {
-  top = 0;
-}
+// Import styles
+import styles from '../styles/login.styles'
 
 export default function Login() {
   const [email, setEmail] = useState<string>("");
@@ -52,26 +43,28 @@ export default function Login() {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <View style={styles.container}>
-        <View style={styles.loginHeader}>
-          <Text style={styles.loginHeaderText}>Login</Text>
+        <View style={styles.header}>
+          <Text style={styles.headerText}>Login</Text>
         </View>
 
-        <View style={styles.loginContainer}>
+        <View style={styles.infoContainer}>
+
           {/* Email */}
-          <View style={styles.emailContainer}>
-            <Text style={styles.emailText}>Email</Text>
+          <View style={styles.fieldContainer}>
+            <Text style={styles.fieldText}>Email</Text>
             <TextInput
-              style={styles.emailInput}
+              style={styles.fieldInput}
               placeholder="Enter your email"
               value={email}
               onChangeText={(text) => setEmail(text)}
             />
           </View>
+
           {/* Password */}
-          <View style={styles.passwordContainer}>
-            <Text style={styles.passwordText}>Password</Text>
+          <View style={styles.fieldContainer}>
+            <Text style={styles.fieldText}>Password</Text>
             <TextInput
-              style={styles.passwordInput}
+              style={styles.fieldInput}
               placeholder="Enter your password"
               value={password}
               secureTextEntry={true}
@@ -86,9 +79,9 @@ export default function Login() {
           </View>
           {/* Login Button */}
           <TouchableOpacity onPress={handleLogin}>
-            <View style={styles.loginButton}>
+            <View style={styles.button}>
 
-              <Text style={styles.loginButtonText}>
+              <Text style={styles.buttonText}>
                 Login
               </Text>
 
@@ -106,104 +99,3 @@ export default function Login() {
     </TouchableWithoutFeedback>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginHorizontal: 15,
-    marginTop: height * 0.05,
-  },
-  arrowContainer: {
-    width: 40,
-    height: 40,
-    borderTopLeftRadius: 8,
-    borderBottomRightRadius: 8,
-    backgroundColor: Colors.primary,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  loginHeader: {
-    marginTop: 20,
-  },
-  loginHeaderText: {
-    fontSize: 36,
-    fontWeight: "bold",
-  },
-  loginContainer: {
-    marginTop: 20,
-  },
-  emailContainer: {
-    marginTop: 20,
-  },
-  emailText: {
-    fontSize: 16,
-    fontWeight: "bold",
-  },
-  emailInput: {
-    marginTop: 10,
-    width: "100%",
-    height: 50,
-    backgroundColor: Colors.light,
-    borderWidth: 1,
-    borderColor: Colors.light,
-    borderRadius: 8,
-    paddingLeft: 10,
-  },
-  passwordContainer: {
-    marginTop: 20,
-  },
-  passwordText: {
-    fontSize: 16,
-    fontWeight: "bold",
-  },
-  passwordInput: {
-    marginTop: 10,
-    width: "100%",
-    height: 50,
-    backgroundColor: Colors.light,
-    borderRadius: 8,
-    paddingLeft: 10,
-    borderWidth: 1,
-    borderColor: Colors.light,
-  },
-  forgotContainer: {
-    marginTop: 20,
-    alignItems: "flex-end",
-  },
-  forgotText: {
-    fontSize: 16,
-    fontWeight: "bold",
-    color: Colors.primary,
-  },
-  loginButton: {
-    marginTop: 20,
-    width: "100%",
-    height: 50,
-    backgroundColor: Colors.primary,
-    borderRadius: 8,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  loginButtonText: {
-    fontSize: 16,
-    fontWeight: "bold",
-    color: Colors.white,
-  },
-  signupGroup: {
-    flexDirection: "row",
-    marginTop: 10,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  signup: {
-    color: Colors.primary,
-    fontSize: 16,
-    fontWeight: "bold",
-    marginRight: 5,
-  },
-  new: {
-    fontSize: 16,
-    fontWeight: "500",
-    marginRight: 5,
-  },
-});
