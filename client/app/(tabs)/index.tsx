@@ -1,11 +1,12 @@
 
 import React, { useState } from "react";
-import { Button, StyleSheet,  View } from "react-native";
+import { View } from "react-native";
 
 import FilterPicker from "../../components/filterPicker";
 import ProductList from "../../components/ProductList";
 
 import styles from '../../styles/home.styles'
+
 
 export default function HomeScreen() {
   const [selectedFilter, setSelectedFilter] = useState<string>('All');
