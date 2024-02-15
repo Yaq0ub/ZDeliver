@@ -7,9 +7,9 @@ const styles = StyleSheet.create({
       margin: 10,
       alignItems: 'center', // Align items vertically in the center
       backgroundColor: '#fff', // Optional: Adds background color to each item
-      borderRadius: 5, // Optional: Rounds the corners of the item container
+      borderRadius: 30, // Optional: Rounds the corners of the item container
       overflow: 'hidden', // Keeps the child views within the bounds of the rounded corners
-      ...Shadows.medium
+      ...Shadows.medium,
     },
     image: {
       width: 100,
