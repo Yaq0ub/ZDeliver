@@ -5,3 +5,13 @@ export type ProductItemType = {
     category: string;
     uri: string;
 };
+export interface ProductListProps {
+    selectedFilter: string;
+    productsInventory: any;
+  }
+
+export type ProductCardType = {
+    name: string;
+    price: number;
+    uri: string;
+};

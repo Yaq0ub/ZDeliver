@@ -1,23 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { View, FlatList, Image, StyleSheet, Text } from 'react-native';
 
+import ProductCard from './productCard';
+import ConvertInventoryToArray from '../utils/ConvertInventoryToArray';
+
 // Import Styles
 import styles from '../styles/components/ProductList.styles'
 
-// Define a type for the product items based on the structure returned by readProductsInventory
-type ProductItemType = {
-  key: string;
-  name: string;
-  price: number;
-  category: string;
-  uri: string;
-};
-
-// Add selectedFilter to the component props
-interface ProductListProps {
-  selectedFilter: string;
-  productsInventory: any;
-}
+// Import types
+import { ProductItemType, ProductListProps } from '../constants/types'
 
 const ProductList: React.FC<ProductListProps> = ({ selectedFilter, productsInventory}) => {
   // State to hold the array of products
@@ -25,10 +16,7 @@ const ProductList: React.FC<ProductListProps> = ({ selectedFilter, productsInven
 
   useEffect(() => {
     // Convert the object into an array suitable for FlatList
-    let productArray: ProductItemType[] = Object.keys(productsInventory).map((key) => ({
-      key,
-      ...productsInventory[key],
-    }));
+    let productArray: ProductItemType[] = ConvertInventoryToArray(productsInventory)
 
     // Filter products by category if selectedFilter is not 'All'
     if (selectedFilter !== 'All') {
@@ -38,15 +26,9 @@ const ProductList: React.FC<ProductListProps> = ({ selectedFilter, productsInven
     setProducts(productArray);
   }, [ productsInventory, selectedFilter]); // Re-fetch or filter products when selectedFilter changes
 
-  // Render function for each product
+  // Render function for each ProductCard
   const renderProduct = ({ item }: { item: ProductItemType }) => (
-    <View style={styles.itemContainer}>
-      <Image source={{ uri: item.uri }} style={styles.image} />
-      <View style={styles.textContainer}>
-        <Text style={styles.text}>{item.name}</Text>
-        <Text style={styles.text}>Price: ${item.price}</Text>
-      </View>
-    </View>
+    <ProductCard name={item.name} price={item.price} uri={item.uri}/>
   );
 
   return (
@@ -54,6 +36,7 @@ const ProductList: React.FC<ProductListProps> = ({ selectedFilter, productsInven
       data={products}
       renderItem={renderProduct}
       keyExtractor={(item) => item.key}
+      style={styles.container}
     />
   );
 };
