@@ -8,14 +8,8 @@ import ProductList from "../../components/ProductList";
 import styles from '../../styles/home.styles'
 import readProductsInventory from "../../services/other/readProductsInventory";
 
-// Define a type for the product items based on the structure returned by readProductsInventory
-type ProductItemType = {
-  key: string;
-  name: string;
-  price: number;
-  category: string;
-  uri: string;
-};
+// Import types
+import { ProductItemType } from "../../constants/types";
 
 export default function HomeScreen() {
   const [products, setProducts] =  useState<ProductItemType[]>([])
