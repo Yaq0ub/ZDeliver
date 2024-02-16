@@ -24,23 +24,19 @@ const ProductList: React.FC<ProductListProps> = ({ selectedFilter, productsInven
   const [products, setProducts] = useState<ProductItemType[]>([]);
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      // Convert the object into an array suitable for FlatList
-      let productArray: ProductItemType[] = Object.keys(productsInventory).map((key) => ({
-        key,
-        ...productsInventory[key],
-      }));
+    // Convert the object into an array suitable for FlatList
+    let productArray: ProductItemType[] = Object.keys(productsInventory).map((key) => ({
+      key,
+      ...productsInventory[key],
+    }));
 
-      // Filter products by category if selectedFilter is not 'all'
-      if (selectedFilter !== 'All') {
-        productArray = productArray.filter(product => product.category === selectedFilter);
-      }
+    // Filter products by category if selectedFilter is not 'All'
+    if (selectedFilter !== 'All') {
+      productArray = productArray.filter(product => product.category === selectedFilter);
+    }
 
-      setProducts(productArray);
-    };
-
-    fetchProducts();
-  }, [selectedFilter]); // Re-fetch or filter products when selectedFilter changes
+    setProducts(productArray);
+  }, [ productsInventory, selectedFilter]); // Re-fetch or filter products when selectedFilter changes
 
   // Render function for each product
   const renderProduct = ({ item }: { item: ProductItemType }) => (

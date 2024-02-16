@@ -16,16 +16,22 @@ type ProductItemType = {
   category: string;
   uri: string;
 };
+
 export default function HomeScreen() {
   const [products, setProducts] =  useState<ProductItemType[]>([])
   const [selectedFilter, setSelectedFilter] = useState<string>('All');
   const [categories, setCategories] = useState<string[]>(['']) 
 
   useEffect(() => { 
-    const fetchProducts = async () =>{
-      const productsInventory = await readProductsInventory();
-      setCategories(productsInventory.categoriesString.split(','))
-      setProducts(productsInventory.productsDictionary)
+    const fetchProducts = async () => {
+      try {
+        const productsInventory = await readProductsInventory();
+        setCategories(productsInventory.categoriesString.split(','));
+        setProducts(productsInventory.productsDictionary);
+      } catch (error) {
+        console.error("Failed to fetch products", error);
+        // Handle the error appropriately
+      }
     };
 
     fetchProducts();
