@@ -2,7 +2,7 @@ import { Text, View } from '../../components/Themed';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { router } from 'expo-router'
 
-import { ACCOUNT_ROUTES } from '../../constants/Consts';
+import { ACCOUNT_ROUTES } from '../../constants/consts';
 
 import styles from  '../../styles/account.styles';
 

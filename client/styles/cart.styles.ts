@@ -14,11 +14,13 @@ const styles = StyleSheet.create({
       width: '100%',
       height: '70%',
       //backgroundColor: '#000000',
-      alignItems: 'center', // Center horizontally
+      //alignItems: 'center', // Center horizontally
       justifyContent: 'center', // Center vertically
+      flex: 1
     },
     botContainer: {
       width: '100%',
+      height: '30%',
       //backgroundColor: '#EEE00E',
       alignItems: 'center',
       justifyContent: 'center',

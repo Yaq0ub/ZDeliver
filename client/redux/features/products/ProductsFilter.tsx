@@ -1,30 +1,33 @@
 // FilterPicker.tsx
 import React from "react";
 import { StyleSheet, ScrollView, TouchableOpacity, Text } from "react-native";
-import Colors from "../constants/Colors";
+import Colors from "../../../constants/Colors";
 
-interface FilterPickerProps {
-  selectedFilter: string;
-  setSelectedFilter: (filter: string) => void; // Adjust type if necessary
-  filterOptions: string[]
+import {useAppSelector, useAppDispatch } from '../../hooks';
 
-}
+import { 
+    setSelectedCategory
+ } from "./productsSlice"; 
 
-const FilterPicker: React.FC<FilterPickerProps> = ({ selectedFilter, setSelectedFilter, filterOptions }) => {
+const ProductsFilter: React.FC = () => {
+  const selectedCategory = useAppSelector((state)=> state.products.selectedCategory)
+  const categories = useAppSelector((state) => state.products.categories)
+  const dispatch = useAppDispatch();
+
   return (
     <ScrollView
       horizontal={true}
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={styles.filterContainer}
     >
-      {filterOptions.map((filter, index) => (
+      {categories.map((filter, index) => (
         <TouchableOpacity
           key={index}
           style={[
             styles.filterField,
-            filter === selectedFilter && styles.selectedFilter,
+            filter === selectedCategory && styles.selected,
           ]}
-          onPress={() => setSelectedFilter(filter)}
+          onPress={() => dispatch(setSelectedCategory(filter))}
         >
           <Text style={styles.filterText}>{filter}</Text>
         </TouchableOpacity>
@@ -50,7 +53,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  selectedFilter: {
+  selected: {
     backgroundColor: Colors.lightBlue,
   },
   filterText: {
@@ -59,4 +62,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FilterPicker
+export default ProductsFilter
