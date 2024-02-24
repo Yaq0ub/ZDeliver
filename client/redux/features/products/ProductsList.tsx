@@ -1,53 +1,45 @@
 import React, { useEffect, useState } from 'react';
-import {FlatList} from 'react-native';
+import { FlatList } from 'react-native';
 
-import ProductCard from '../../../components/ProductCard';
+import ProductCard from './ProductCard';
 
 // Import Styles
-import styles from '../../../styles/components/ProductList.styles'
+import styles from '../../../styles/components/ProductList.styles';
 
 // Import types
-import { ProductItemType} from '../../../constants/types'
+import { ProductItemType } from '../../../constants/types';
 
-import {useAppSelector } from '../../hooks';
+import { useAppSelector } from '../../hooks';
 
 const ProductsList: React.FC = () => {
-  const [products, setProducts] = useState<ProductItemType[]>()
+  // Directly use the array of products from Redux state
+  const productsInventory = useAppSelector((state) => state.products.products);
+  const selectedCategory = useAppSelector((state) => state.products.selectedCategory);
 
-  // State to hold the array of products
-  const productsInventory= useAppSelector((state)=> state.products.productsList);
-  const selectedCategory = useAppSelector((state)=> state.products.selectedCategory);
-  
+  const [filteredProducts, setFilteredProducts] = useState<ProductItemType[]>([]);
+
   useEffect(() => {
-    // Inline conversion of the object into an array suitable for FlatList
-    const productsArray = Object.keys(productsInventory).map(key => ({
-      ...productsInventory[key],
-      key, // Assuming each product doesn't already include a 'key' property
-    }));
-   
     // Filter products by selected category if it's not 'All'
-    const filteredProducts = selectedCategory !== 'All'
-      ? productsArray.filter(product => product.category === selectedCategory)
-      : productsArray;
-  
-    setProducts(filteredProducts);
+    const products = selectedCategory !== 'All'
+      ? productsInventory.filter(product => product.category === selectedCategory)
+      : productsInventory;
+
+    setFilteredProducts(products);
   }, [productsInventory, selectedCategory]);
 
   // Render function for each ProductCard
   const renderProduct = ({ item }: { item: ProductItemType }) => (
-    <ProductCard productID={item.key}/>
+    <ProductCard item={item} />
   );
 
   return (
     <FlatList
-      data={products}
+      data={filteredProducts}
       renderItem={renderProduct}
-      keyExtractor={(item) => item.key}
+      keyExtractor={(item) => item.id}
       style={styles.container}
     />
   );
 };
-
-
 
 export default ProductsList;
