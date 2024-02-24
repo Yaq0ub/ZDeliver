@@ -1,16 +1,13 @@
-
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { View } from "react-native";
-
 import ProductsFilter from "../../redux/features/products/ProductsFilter";
-import ProductsList from "../../redux/features/products/ProductsList"
-
-import styles from '../../styles/home.styles'
-
-import { useAppDispatch} from "../../redux/hooks";
-
-import { getProductsAsync} from "../../redux/features/products/productsSlice";
+import ProductsList from "../../redux/features/products/ProductsList";
+import styles from '../../styles/home.styles';
 import { StatusBar } from "expo-status-bar";
+import { useAppDispatch } from "../../redux/hooks";
+import { getProductsAsync} from "../../redux/features/products/productsSlice";
+
+import { setupCartAndSubtotalListeners } from "../../services/firebaseServices/setupCartAndSubtotalListeners";
 
 export default function HomeScreen() {
   
@@ -19,30 +16,25 @@ export default function HomeScreen() {
   useEffect(() => { 
     const fetchProducts = async () => {
       try {
-        dispatch(getProductsAsync())
+        dispatch(getProductsAsync());
       } catch (error) {
         console.error("Failed to fetch products", error);
-        // Handle the error appropriately
       }
     };
 
     fetchProducts();
-  },[]);
-  
-  
+    setupCartAndSubtotalListeners(dispatch);
+  }, []);
   
   return (
     <View style={styles.container}>
       <StatusBar style={'light'}/>
-      {/* Filter Picker Container */}
       <View style={styles.filterPickerContainer}>
         <ProductsFilter />
       </View>
-      {/* Product List Container */}
       <View style={styles.productListContainer}>
         <ProductsList />
       </View>
     </View>
   );
 }
-
