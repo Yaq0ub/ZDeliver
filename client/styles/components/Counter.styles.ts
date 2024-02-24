@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
       overflow: 'hidden', // Keeps the child views within the bounds of the rounded corners
       //...Shadows.medium,
       height: 50,
-      width: 80
+      width: 120
   },
   button: {
       //margin: 5,
@@ -24,7 +24,6 @@ const styles = StyleSheet.create({
   count: {
     fontSize: 20,
     margin: 5,
-    textAlign: 'centered'
   },
 });
 export default styles
