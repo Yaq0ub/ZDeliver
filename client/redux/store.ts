@@ -1,30 +1,30 @@
 
 import storage from '@react-native-async-storage/async-storage';
 import { 
-  //persistStore, 
+  persistStore, 
   persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
   PERSIST,
   PURGE,
-  REGISTER, } from 'redux-persist';
+  REGISTER,
+  } from 'redux-persist';
 
-import {configureStore, ThunkAction, Action, combineReducers} from '@reduxjs/toolkit';
+import {configureStore, ThunkAction, Action, combineReducers,} from '@reduxjs/toolkit';
 
 import productsReducer from './features/products/productsSlice';
-
 
 /* For async persist */
 const persistConfig = {
   key: 'root',
-  version: 1,
+  //version: 1,
   storage,
 };
 
 // Adding our rootReducer
 const rootReducer = combineReducers({
-  products: productsReducer
+  products: productsReducer,
 })
 
 // Persisting our rootReducer
@@ -41,6 +41,8 @@ export const store = configureStore({
   }),
 });
 
+// Configure the persistor
+export const persistor = persistStore(store)
 
 // export const store = configureStore({
 //   reducer: {
