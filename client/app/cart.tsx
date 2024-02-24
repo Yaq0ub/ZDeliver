@@ -7,13 +7,14 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import styles from '../styles/cart.styles'
 
 import CartList from '../redux/features/products/CartList';
-import Subtotal from '../components/Subtotal';
+import Subtotal from '../redux/features/products/Subtotal';
 
 export default function CartScreen() {
   const checkoutRoute = () => { router.replace("checkout" as any) }
   return (
 
     <View style={styles.container}>
+      
       <StatusBar style="light" />
       {/* Top container for displaying the cart */}
       <View style={styles.topContainer}>
