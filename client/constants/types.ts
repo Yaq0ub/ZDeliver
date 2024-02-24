@@ -1,17 +1,12 @@
 export type ProductItemType = {
-    key: string;
+    id: string;
     name: string;
     price: number;
     category: string;
     uri: string;
+    count: number;
 };
 export interface ProductListProps {
     selectedFilter: string;
     productsInventory: any;
   }
-
-export type ProductCardType = {
-    name: string;
-    price: number;
-    uri: string;
-};

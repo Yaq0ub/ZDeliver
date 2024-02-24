@@ -2,9 +2,17 @@ import { Text, View } from '../../components/Themed';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { router } from 'expo-router'
 
-import { ACCOUNT_ROUTES } from '../../constants/Consts';
 
 import styles from  '../../styles/account.styles';
+
+const ACCOUNT_ROUTES=[
+  { label: 'Manage account', route: "/(tabs)/manage" },
+  { label: 'Orders', route: "/(tabs)/orders" },
+  { label: 'Payments', route: "/(tabs)/payments" },
+  { label: 'Addresses', route: "/(tabs)/addresses" },
+  { label: 'Privacy', route: "/(tabs)/privacy" },
+  { label: 'Notifications', route: "/(tabs)/notifications" },
+  { label: 'Logout', route: "/(tabs)/logout" },];
 
 export default function AccountScreen() {
 

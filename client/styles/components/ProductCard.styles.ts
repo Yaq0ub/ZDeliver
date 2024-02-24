@@ -22,6 +22,9 @@ const styles = StyleSheet.create({
     text: {
       textAlign: 'left', // Adjusts text alignment to the left
     },
+    counterContainer: {
+      
+    }
   });
 
 export default styles

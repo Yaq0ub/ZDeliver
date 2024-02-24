@@ -1,10 +1,18 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { SplashScreen, Stack } from 'expo-router';
 import { useEffect } from 'react';
-import { useColorScheme } from 'react-native';
+
+import { Provider } from 'react-redux';
+import { persistStore } from 'redux-persist';
+import { PersistGate } from 'redux-persist/integration/react'
+import { store } from '../redux/store'
+
+
 import Colors from '../constants/Colors';
+
+let persistor = persistStore(store)
+
 export {
   // Catch any errors thrown by the Layout component.
   ErrorBoundary,
@@ -43,52 +51,27 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-  const colorScheme = useColorScheme();
 
   return (
     //<ThemeProvider value={colorScheme === "light" ? DarkTheme : DefaultTheme}>
-    <Stack>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false, }} />
-      <Stack.Screen name="cart" options={{
-        presentation: "modal",
-        title: 'Cart',
-        headerStyle: { backgroundColor: Colors.primary },
-        headerTintColor: Colors.light
-
-      }} />
-      <Stack.Screen name="checkout" options={{ 
-        presentation: "modal", 
-        title: "Checkout",
-        headerStyle: { backgroundColor: Colors.primary },
-        headerTintColor: Colors.light 
-        }} />
-      <Stack.Screen name="landing" options={{ headerShown: false }} />
-      <Stack.Screen name="login" options={{
-        presentation: "modal",
-        headerTintColor: Colors.light,
-        headerStyle: {
-          backgroundColor: Colors.primary,
-        },
-        title: ''
-      }} />
-      <Stack.Screen name="register" options={{
-        presentation: "modal",
-        headerTintColor: Colors.light,
-        headerStyle: {
-          backgroundColor: Colors.primary,
-        },
-        title: ''
-      }} />
-      <Stack.Screen name="placed" options={{
-        presentation: "modal",
-        headerTintColor: Colors.light,
-        headerStyle: {
-          backgroundColor: Colors.primary,
-        },
-        title: ''
-      }} />
-
-    </Stack>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <Stack screenOptions={
+          {
+            headerStyle: { backgroundColor: Colors.primary },
+            headerTintColor: Colors.light
+          }
+        }>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false, }} />
+          <Stack.Screen name="cart" options={{ presentation: "modal", title: 'Cart' }} />
+          <Stack.Screen name="checkout" options={{ presentation: "modal", title: "Checkout" }} />
+          <Stack.Screen name="landing" options={{ headerShown: false }} />
+          <Stack.Screen name="login" options={{ presentation: "modal", title: '' }} />
+          <Stack.Screen name="register" options={{ presentation: "modal", title: '' }} />
+          <Stack.Screen name="placed" options={{ presentation: "modal", title: '' }} />
+        </Stack>
+      </PersistGate>
+    </Provider>
     //</ThemeProvider>
   );
 }

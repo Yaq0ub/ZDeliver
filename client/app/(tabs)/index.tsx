@@ -1,56 +1,40 @@
-
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { View } from "react-native";
+import ProductsFilter from "../../redux/features/products/ProductsFilter";
+import ProductsList from "../../redux/features/products/ProductsList";
+import styles from '../../styles/home.styles';
+import { StatusBar } from "expo-status-bar";
+import { useAppDispatch } from "../../redux/hooks";
+import { getProductsAsync} from "../../redux/features/products/productsSlice";
 
-import FilterPicker from "../../components/filterPicker";
-import ProductList from "../../components/ProductList";
-
-import styles from '../../styles/home.styles'
-import readProductsInventory from "../../services/other/readProductsInventory";
-
-// Import types
-import { ProductItemType } from "../../constants/types";
+import { setupCartAndSubtotalListeners } from "../../services/firebaseServices/setupCartAndSubtotalListeners";
 
 export default function HomeScreen() {
-  const [products, setProducts] =  useState<ProductItemType[]>([])
-  const [selectedFilter, setSelectedFilter] = useState<string>('All');
-  const [categories, setCategories] = useState<string[]>(['']) 
+  
+  const dispatch = useAppDispatch();
 
   useEffect(() => { 
     const fetchProducts = async () => {
       try {
-        const productsInventory = await readProductsInventory();
-        setCategories(productsInventory.categoriesString.split(','));
-        setProducts(productsInventory.productsDictionary);
+        dispatch(getProductsAsync());
       } catch (error) {
         console.error("Failed to fetch products", error);
-        // Handle the error appropriately
       }
     };
 
     fetchProducts();
-  },[]);
-  
-  
+    setupCartAndSubtotalListeners(dispatch);
+  }, []);
   
   return (
     <View style={styles.container}>
-      {/* Filter Picker Container */}
+      <StatusBar style={'light'}/>
       <View style={styles.filterPickerContainer}>
-        <FilterPicker 
-          selectedFilter={selectedFilter} 
-          setSelectedFilter={setSelectedFilter}
-          filterOptions={categories}
-        />
+        <ProductsFilter />
       </View>
-      {/* Product List Container */}
       <View style={styles.productListContainer}>
-        <ProductList 
-          selectedFilter={selectedFilter} 
-          productsInventory={products}
-        />
+        <ProductsList />
       </View>
     </View>
   );
 }
-
