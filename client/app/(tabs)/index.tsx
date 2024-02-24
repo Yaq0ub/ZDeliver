@@ -7,7 +7,7 @@ import { StatusBar } from "expo-status-bar";
 import { useAppDispatch } from "../../redux/hooks";
 import { getProductsAsync} from "../../redux/features/products/productsSlice";
 
-import { setupCartAndSubtotalListeners } from "../../services/firebaseServices/setupCartAndSubtotalListeners";
+import { setupCartAndSubtotalListeners } from "../../services/firebase/setupCartAndSubtotalListeners";
 
 export default function HomeScreen() {
   

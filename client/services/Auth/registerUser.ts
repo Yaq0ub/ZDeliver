@@ -1,6 +1,7 @@
 import { auth, db } from "../../firebase/firebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
+import createNewUserCollectionAsync from "../firebaseServices/createNewUserCollectionAsync";
 
 interface RegisterParams {
   email: string;
@@ -19,7 +20,8 @@ export const registerUser = async ({ email, password, username, phone }: Registe
             PhoneNumber: phone,
             CreatedAt: new Date().toUTCString(),
         });
-        console.log("account logged in successfully 🎉");
+        createNewUserCollectionAsync(user.uid,email,phone,username,password)
+        console.log("account created successfully 🎉");
         return true; // Return true if everything above was successful
     } catch (err: any) {
         console.log(err.message); 

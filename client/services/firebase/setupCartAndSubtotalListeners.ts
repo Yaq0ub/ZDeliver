@@ -1,5 +1,5 @@
 import { collection, onSnapshot, doc, DocumentData, QuerySnapshot } from 'firebase/firestore';
-import { db } from '../../firebase/firebaseConfig'; // Adjust the import path as necessary
+import { db, auth } from '../../firebase/firebaseConfig'; // Adjust the import path as necessary
 import { AppDispatch } from '../../redux/store'; // Adjust the import path as necessary
 import { updateCart, updateSubtotal } from '../../redux/features/products/productsSlice'; // Adjust the import path as necessary
 import { ProductItemType } from '../../constants/types'; // Adjust the import path as necessary
@@ -9,7 +9,11 @@ import { ProductItemType } from '../../constants/types'; // Adjust the import pa
  * Returns a cleanup function that unsubscribes from the Firestore listeners.
  */
 export const setupCartAndSubtotalListeners = (dispatch: AppDispatch): () => void => {
-  const cartCollectionRef = collection(db, 'Users', 'testuserid', 'cart');
+  const user = auth.currentUser;
+  if (!user) {
+    throw new Error("No authenticated user found.");
+  }
+  const cartCollectionRef = collection(db, 'Users', user.uid, 'cart');
   
   // Listener for cart items excluding the subtotal document
   const unsubscribeCart = onSnapshot(cartCollectionRef, (snapshot: QuerySnapshot<DocumentData>) => {
@@ -22,7 +26,7 @@ export const setupCartAndSubtotalListeners = (dispatch: AppDispatch): () => void
   });
 
   // Reference to the subtotal document
-  const subtotalDocRef = doc(db, 'Users', 'testuserid', 'cart', '0');
+  const subtotalDocRef = doc(db, 'Users', user.uid, 'cart', '0');
   // Listener for the subtotal document
   const unsubscribeSubtotal = onSnapshot(subtotalDocRef, (doc) => {
       if (doc.exists()) {

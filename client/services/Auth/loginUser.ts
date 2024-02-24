@@ -12,11 +12,11 @@ interface LoginParams {
 export const loginUser = async ({ email, password}: LoginParams): Promise<boolean> => {
     try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password)
-        const user = userCredential.user;
-        await setDoc(doc(db, "login", user.uid), {
-            Email: user.email,
-            loginAt: new Date().toUTCString(),
-        });
+        // const user = userCredential.user;
+        // await setDoc(doc(db, "login", user.uid), {
+        //     Email: user.email,
+        //     loginAt: new Date().toUTCString(),
+        // });
         console.log("account logged in successfully 🎉");
         return true; // Return true if everything above was successful
     } catch (err: any) {
