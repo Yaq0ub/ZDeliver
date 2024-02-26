@@ -4,10 +4,16 @@ import { signOut, getAuth } from "firebase/auth";
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import styles from '../../styles/logout.styles'
+import { useAppDispatch } from '../../redux/hooks';
+import { setAuthenticatedFalse } from '../../redux/features/auth/authSlice';
 
 const logout = () => {
   const { currentUser } = getAuth();
-  const handleSignOut = () =>{signOut(getAuth())}
+  const dispatch = useAppDispatch();
+  const handleSignOut = () =>{
+    signOut(getAuth())
+    dispatch(setAuthenticatedFalse())
+  }
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{currentUser?.email}</Text>
