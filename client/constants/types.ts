@@ -22,11 +22,14 @@ export type PaymentType = {
     last4: string;
 }
 export type AddressType = {
-    id: string;
-    area: string
+    //id: string;
+    name: string; 
+    area: string;
     street1: string;
     street2: string;
+    city: string;
     zipcode: string;
+   phone: string;
 }
 export interface ProductListProps {
     selectedFilter: string;
