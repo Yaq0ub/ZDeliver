@@ -1,24 +1,34 @@
-import { View, Text, Image } from 'react-native'
-import React from 'react'
-import Counter from '../../../components/Counter'
+import React, { useState } from 'react';
+import { View, Text, Image, ActivityIndicator } from 'react-native';
 
-// Import style
-import styles from '../../../styles/components/ProductCard.styles'
+import styles from '../../../styles/components/ProductCard.styles';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useAppDispatch } from '../../hooks';
+import { addToCartAsync, removeFromCartAsync } from './productsSlice';
+import { ProductItemType } from '../../../constants/types';
+import { Ionicons } from '@expo/vector-icons';
 
-import { TouchableOpacity } from 'react-native-gesture-handler'
-import { useAppDispatch, useAppSelector } from '../../hooks'
-
-import { addToCartAsync, removeFromCartAsync } from './productsSlice'
-import { ProductItemType } from '../../../constants/types'
-
+import Colors from '../../../constants/Colors';
 interface ProductCardProps {
   item: ProductItemType;
 }
+
 const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
   const dispatch = useAppDispatch();
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handlePlus = () => { dispatch(addToCartAsync(item)) };
-  const handleMinus = () => { dispatch(removeFromCartAsync(item)) }
+  const handlePlus = async () => {
+    setIsLoading(true);
+    await dispatch(addToCartAsync(item));
+    setIsLoading(false);
+  };
+
+  const handleMinus = async () => {
+    setIsLoading(true);
+    await dispatch(removeFromCartAsync(item));
+    setIsLoading(false);
+  };
+
   return (
     <TouchableOpacity style={styles.itemContainer}>
       <Image source={{ uri: item.uri }} style={styles.image} />
@@ -29,14 +39,26 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
         <Text style={styles.text}>Price: ${item.price}</Text>
       </View>
       <View style={styles.counterContainer}>
-        <Counter
-          count={item.count}
-          plusHandler={handlePlus}
-          minusHandler={handleMinus}
-        />
+        {isLoading ? (
+          <ActivityIndicator size="small" color={Colors.primary} />
+        ) : (
+          <View style={styles.counterContainer}>
+            <TouchableOpacity onPress={handleMinus} style={styles.counterButton}>
+              {item.count === 1 ? (
+                <Ionicons name='trash' size={24} style={styles.iconColor} />
+              ) : (
+                <Ionicons name='remove-circle' size={24} color={Colors.primary} />
+              )}
+            </TouchableOpacity>
+            <Text style={styles.counterCount}>{item.count}</Text>
+            <TouchableOpacity onPress={handlePlus} style={styles.counterButton}>
+              <Ionicons name='add-circle' size={24} style={styles.iconColor} />
+            </TouchableOpacity>
+          </View>
+        )}
       </View>
     </TouchableOpacity>
-  )
-}
+  );
+};
 
-export default ProductCard
+export default ProductCard;
