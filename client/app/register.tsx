@@ -12,11 +12,16 @@ import {
 import React, { useState } from "react";
 import { router } from 'expo-router';
 
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 // API
-import { registerUser } from "../services/Auth/registerUser";
+import { registerUser } from "../services/firebase-AUTH/registerUser";
 
-// Styles import
+//* Styles imports */
 import styles from '../styles/register.styles'
+
+/* State management imports */
+import { setAuthenticatedTrue } from "../redux/features/auth/authSlice";
+import { useAppDispatch } from "../redux/hooks";
 
 export default function register() {
   const [email, setEmail] = useState<string>("");
@@ -24,7 +29,7 @@ export default function register() {
   const [username, setUsername] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
-
+  const dispatch = useAppDispatch();
   const handleSignup = async () => {
     setLoading(true);
     try {
@@ -33,6 +38,7 @@ export default function register() {
         // Handle successful registration, e.g., navigate to a different screen
         Alert.alert("Registration Success", "Account created successfully 🎉");
         setLoading(false);
+        dispatch(setAuthenticatedTrue());
         router.replace('/(tabs)');
       } else {
         // Handle registration failure (this might need adjustments based on your error handling)
@@ -51,7 +57,7 @@ export default function register() {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-    <View style={styles.container}>
+    <KeyboardAwareScrollView style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.headerText}>Register</Text>
       </View>
@@ -115,7 +121,7 @@ export default function register() {
           </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
-    </View>
+    </KeyboardAwareScrollView>
     </TouchableWithoutFeedback>
     
   );

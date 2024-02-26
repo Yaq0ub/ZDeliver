@@ -15,4 +15,5 @@ export default {
     text: "#3EADDF",
     b1:"#016592", 
     b2: "#023A64",
+    border:'#cccccc',
 };

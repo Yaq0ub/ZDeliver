@@ -1,4 +1,4 @@
-import { Text, View } from '../../components/Themed';
+import { Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { router } from 'expo-router'
 

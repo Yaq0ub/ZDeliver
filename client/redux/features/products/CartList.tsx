@@ -8,10 +8,10 @@ import { ProductItemType } from '../../../constants/types';
 import { useAppSelector } from '../../hooks';
 
 const CartList: React.FC = () => {
-    const cartList = useAppSelector((state) => state.products.cart);
+    const cart = useAppSelector((state) => state.products.cart);
     useEffect(() => {
-       
-    }, [cartList]); // `dispatch` is stable and doesn't change, so it's safe to include it here
+
+    }, [cart]); // `dispatch` is stable and doesn't change, so it's safe to include it here
 
     // Render function for each ProductCard
     const renderProduct = ({ item }: { item: ProductItemType }) => (
@@ -20,9 +20,11 @@ const CartList: React.FC = () => {
 
     return (
         <FlatList
-            data={cartList}
+            data={cart}
             renderItem={renderProduct}
-            keyExtractor={(item, index) => item.id || String(index)}
+            keyExtractor={(item) => item.id}
+            showsVerticalScrollIndicator={false} // Remove vertical scroll indicator
+            showsHorizontalScrollIndicator={false} // Remove horizontal scroll indicator (if applicable)
             style={styles.container}
         />
     );

@@ -69,6 +69,7 @@ function RootLayoutNav() {
           <Stack.Screen name="login" options={{ presentation: "modal", title: '' }} />
           <Stack.Screen name="register" options={{ presentation: "modal", title: '' }} />
           <Stack.Screen name="placed" options={{ presentation: "modal", title: '' }} />
+          <Stack.Screen name="addaddress" options={{ presentation: "modal", title: 'Add Address' }} />
         </Stack>
       </PersistGate>
     </Provider>
