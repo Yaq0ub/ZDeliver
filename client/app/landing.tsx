@@ -11,7 +11,7 @@ import styles from '../styles/landing.styles'
 import { signOut, getAuth } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 import { clearProductsState } from '../redux/features/products/productsSlice';
-
+import { setAuthenticatedFalse } from '../redux/features/auth/authSlice';
 // LandingScreen component definition
 export default function LandingScreen() {
   const loginRoute = () => router.push('/login');
@@ -28,6 +28,7 @@ export default function LandingScreen() {
         AsyncStorage.removeItem('persist:root')
         await storage.clear();
         console.log('Storage successfully cleared!');
+        dispatch(setAuthenticatedFalse())
       } catch (e) {
         console.log('Failed to clear the async storage.');
       }
