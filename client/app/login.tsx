@@ -9,17 +9,21 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 
-import { loginUser } from "../services/Auth/loginUser";
+import { loginUser } from "../services/firebase-AUTH/loginUser";
 import { router } from "expo-router";
 
 // Import styles
 import styles from '../styles/login.styles'
 
+import { setAuthenticatedTrue } from "../redux/features/auth/authSlice";
+import { useAppDispatch } from "../redux/hooks";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+
 export default function Login() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<any>("");
   const [loading, setLoading] = useState<boolean>(false);
-
+  const dispatch = useAppDispatch();
   const handleLogin = async () => {
     setLoading(true);
     try {
@@ -28,6 +32,7 @@ export default function Login() {
         // Handle successful login, e.g., navigate to a different screen
         Alert.alert("Login Success", "Account Logged in successfully 🎉");
         setLoading(false);
+        dispatch(setAuthenticatedTrue());
         router.replace('/(tabs)');
       } else {
         // Handle login failure (this might need adjustments based on your error handling)
@@ -42,7 +47,7 @@ export default function Login() {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-      <View style={styles.container}>
+      <KeyboardAwareScrollView style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.headerText}>Login</Text>
         </View>
@@ -95,7 +100,7 @@ export default function Login() {
             </TouchableOpacity>
           </View>
         </View>
-      </View>
+      </KeyboardAwareScrollView>
     </TouchableWithoutFeedback>
   );
 }
