@@ -37,6 +37,8 @@ const ProductsList: React.FC = () => {
       data={filteredProducts}
       renderItem={renderProduct}
       keyExtractor={(item) => item.id}
+      showsVerticalScrollIndicator={false} // Remove vertical scroll indicator
+      showsHorizontalScrollIndicator={false} // Remove horizontal scroll indicator (if applicable)
       style={styles.container}
     />
   );
