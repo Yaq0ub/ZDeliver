@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import {
   Text,
   TouchableOpacity,
-  KeyboardAvoidingView,
   TouchableWithoutFeedback,
-  Platform,
   Keyboard,
 } from 'react-native';
 import styles from '../styles/addaddress.styles'; // Ensure this path is correct

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { View, Text } from 'react-native';
-import ConfirmationModal from './ConfirmationModal'; // Import the ConfirmationModal component
+import ConfirmationModal from '../../../components/ConfirmationModal'; // Import the ConfirmationModal component
 
 // Import the AddressType interface
 import { AddressType } from '../../../constants/types';
