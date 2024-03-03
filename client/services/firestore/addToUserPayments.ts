@@ -6,6 +6,9 @@ import { db, auth } from "../../firebase/firebaseConfig";
 // Import the PaymentType type definition to enforce type safety
 import { PaymentType } from "../../constants/types";
 
+// Import ID generator
+import generateRandomId from "./common/generateRandomId";
+
 /**
  * Adds a new payment method to the authenticated user's collection of payment methods in Firestore.
  * This function attempts to add a provided payment object to a user-specific 'payments'
@@ -20,6 +23,7 @@ import { PaymentType } from "../../constants/types";
  * @throws {Error} Throws an error if no authenticated user is found or if the Firestore operation fails.
  */
 export const addToUserPayments = async (payment: PaymentType): Promise<void> => {
+  console.log('call to addToUserPayments')
   // Check for an authenticated user
   const user = auth.currentUser;
 
@@ -27,14 +31,16 @@ export const addToUserPayments = async (payment: PaymentType): Promise<void> => 
   if (!user) {
     throw new Error("No authenticated user found.");
   }
-
-  // Reference to the current user's document in the 'Users' collection
+  payment.id = generateRandomId();
+  
+  console.log(payment)
+  // Reference to the current user's document in// the 'Users' collection
   const userDocRef = doc(db, 'Users', user.uid);
   // Reference to the 'payments' subcollection within the user's document
   const paymentCollectionRef = collection(userDocRef, 'payments');
   // Create a document reference within the 'payments' collection, using the payment's 'paymentId' as the document ID
   const paymentDocRef = doc(paymentCollectionRef, payment.id); // Using paymentId as a unique identifier; adjust if necessary
-
+  console.log(payment)
   // Attempt to write the payment document to Firestore
   await setDoc(paymentDocRef, payment).catch((error) => {
     // Log and rethrow any errors encountered during the Firestore write operation

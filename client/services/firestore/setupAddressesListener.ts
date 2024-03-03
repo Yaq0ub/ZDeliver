@@ -8,7 +8,7 @@ import { AppDispatch } from '../../redux/store';
 // Importing the AddressType type definition for strong typing of addresses
 import { AddressType } from '../../constants/types';
 // Importing the Redux action for updating addresses in the account slice of the Redux state
-import { updateAddresses } from '../../redux/features/account/accountSlice';
+import { updateAddresses } from '../../redux/features/account/addresses/addressesSlice';
 
 /**
  * Initializes real-time listeners on the 'addresses' collection for the authenticated user in Firestore.

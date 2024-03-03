@@ -6,6 +6,9 @@ import { db, auth } from "../../firebase/firebaseConfig";
 // Import the OrderType type definition to enforce type safety
 import { OrderType } from "../../constants/types";
 
+// Import ID generator
+import generateRandomId from "./common/generateRandomId";
+
 /**
  * Adds a new order to the authenticated user's collection of orders in Firestore.
  * This function attempts to add a provided order object to a user-specific 'orders'
@@ -27,7 +30,8 @@ export const addToUserOrders = async (order: OrderType): Promise<void> => {
   if (!user) {
     throw new Error("No authenticated user found.");
   }
-
+  order.id = generateRandomId();
+  
   // Reference to the current user's document in the 'Users' collection
   const userDocRef = doc(db, 'Users', user.uid);
   // Reference to the 'orders' subcollection within the user's document

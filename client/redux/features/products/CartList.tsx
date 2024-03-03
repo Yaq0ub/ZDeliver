@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
 import ProductCard from './ProductCard';
-import styles from '../../../styles/components/ProductList.styles';
 
 import { ProductItemType } from '../../../constants/types';
 
 import { useAppSelector } from '../../hooks';
+
+import Colors from "../../../constants/Colors"
 
 const CartList: React.FC = () => {
     const cart = useAppSelector((state) => state.products.cart);
@@ -29,5 +30,11 @@ const CartList: React.FC = () => {
         />
     );
 };
-
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      //height: "100%",
+      backgroundColor: Colors.light
+    }
+  });
 export default CartList;

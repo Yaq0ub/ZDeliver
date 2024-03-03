@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
 
 import ProductCard from './ProductCard';
 
 // Import Styles
-import styles from '../../../styles/components/ProductList.styles';
+import Colors from "../../../constants/Colors";
 
 // Import types
 import { ProductItemType } from '../../../constants/types';
@@ -43,5 +43,13 @@ const ProductsList: React.FC = () => {
     />
   );
 };
+
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      //height: "100%",
+      backgroundColor: Colors.light
+    }
+  });
 
 export default ProductsList;

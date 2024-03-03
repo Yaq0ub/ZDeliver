@@ -3,13 +3,13 @@ import { FlatList } from 'react-native';
 import { useSelector } from 'react-redux';
 
 // Import the AddressType interface
-import { AddressType } from '../../../constants/types';
+import { AddressType } from '../../../../constants/types';
 
 // Import the AddressCard component
 import AddressCard from './AddressCard';
 
 // Import the RootState type from Redux store
-import { RootState } from '../../../redux/store';
+import { RootState } from '../../../store';
 
 /**
  * AddressList component displays a list of addresses using AddressCard components.
@@ -19,7 +19,7 @@ import { RootState } from '../../../redux/store';
  */
 const AddressList: React.FC = () => {
   // Retrieve the addresses array from the Redux store using useSelector hook
-  const addresses = useSelector((state: RootState) => state.account.addresses);
+  const addresses = useSelector((state: RootState) => state.addresses.list);
   useEffect(() => {
 
   }, [addresses]); // `dispatch` is stable and doesn't change, so it's safe to include it here

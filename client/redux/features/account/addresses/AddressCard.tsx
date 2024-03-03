@@ -1,17 +1,19 @@
 import React, {useState} from 'react';
-import { View, Text } from 'react-native';
-import ConfirmationModal from '../../../components/ConfirmationModal'; // Import the ConfirmationModal component
+import { View, Text,StyleSheet } from 'react-native';
+import ConfirmationModal from '../../../../components/ConfirmationModal'; // Import the ConfirmationModal component
 
 // Import the AddressType interface
-import { AddressType } from '../../../constants/types';
+import { AddressType } from '../../../../constants/types';
 
 // Import styles
-import styles from '../../../styles/components/AddressCard.styles'
+import Shadows from '../../../../constants/Shadows';
+import Colors from '../../../../constants/Colors';
+
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 
-import { useAppDispatch } from '../../../redux/hooks';
-import { removeFromAddressesAsync } from './accountSlice';
+import { useAppDispatch } from '../../../../redux/hooks';
+import { removeFromAddressesAsync } from './addressesSlice';
 
 // Define props interface for AddressCard component
 interface AddressCardProps {
@@ -68,4 +70,38 @@ const AddressCard: React.FC<AddressCardProps> = ({ address }) => {
   );
 };
 
+const styles = StyleSheet.create({
+  container: {
+    marginVertical: 10,
+    marginHorizontal: 5,
+    //alignItems: 'center', // Vertically center the content in the row
+    backgroundColor: Colors.light, // Background color for the item container
+    borderRadius: 20, // Round the corners of the item container
+    overflow: 'hidden', // Ensure child views are within the bounds of rounded corners
+    ...Shadows.medium, // Apply medium shadow from your constants
+    padding: 20, // Add padding around the contents
+  },
+  name: {
+    fontWeight: 'bold',
+    //marginBottom: 5,
+  },
+  address: {
+    
+  },
+  phone: {
+
+  },
+  trashIconContainer: {
+    //position: 'absolute',
+    //bottom: 10,
+    //right: 10,
+  },
+  icon:{
+    color: Colors.primary
+  },
+  bottomContainer: {
+    flexDirection: 'row',
+    justifyContent:'space-between'
+  }
+});
 export default AddressCard;

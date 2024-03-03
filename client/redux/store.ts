@@ -17,8 +17,12 @@ import {configureStore, ThunkAction, Action, combineReducers,} from '@reduxjs/to
 
 // Import slices from the application's features to be used as reducers.
 import productsReducer from './features/products/productsSlice';
-import accountReducer from './features/account/accountSlice';
+
 import authReducer from './features/auth/authSlice';
+import addressesReducer from './features/account/addresses/addressesSlice';
+import paymentsReducer from './features/account/payments/paymentsSlice';
+import ordersReducer from './features/account/orders/ordersSlice';
+import checkoutReducer from './features/account/checkout/checkoutSlice'
 
 /* Configuration object for redux-persist to define how the persistence will work */
 const persistConfig = {
@@ -30,8 +34,11 @@ const persistConfig = {
 /* Combining all feature reducers into a single root reducer */
 const rootReducer = combineReducers({
   products: productsReducer,
-  account: accountReducer,
+  addresses: addressesReducer,
+  payments: paymentsReducer,
+  orders: ordersReducer,
   auth: authReducer,
+  checkout: checkoutReducer,
 });
 
 /* Wrapping the root reducer with persistReducer to enable persistence */

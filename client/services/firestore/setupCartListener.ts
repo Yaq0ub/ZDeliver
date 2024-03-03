@@ -3,12 +3,14 @@ import { collection, onSnapshot, QuerySnapshot, DocumentData } from 'firebase/fi
 // Import Firebase configuration, including database (db) and authentication (auth) modules
 import { db, auth } from '../../firebase/firebaseConfig'; // Path might need adjustment based on project structure
 
+// Import type definition for cart items
+import { ProductItemType } from '../../constants/types';
+
 // Import Redux dispatch type for updating the Redux store
 import { AppDispatch } from '../../redux/store';
 // Import action creator for updating cart state within the Redux store
 import { updateCart } from '../../redux/features/products/productsSlice';
-// Import type definition for cart items
-import { ProductItemType } from '../../constants/types';
+
 
 /**
  * Initializes real-time listeners on the cart collection for the authenticated user in Firestore.

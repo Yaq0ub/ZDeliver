@@ -4,7 +4,7 @@ import { db, auth } from '../../firebase/firebaseConfig'; // Import Firebase dat
 
 import { AppDispatch } from '../../redux/store'; // Import type for Redux dispatch function
 import { OrderType } from '../../constants/types'; // Import the type definition for orders
-import { updateOrders } from '../../redux/features/account/accountSlice'; // Import the Redux action for updating orders
+import { updateOrders } from '../../redux/features/account/orders/ordersSlice'; // Import the Redux action for updating orders
 
 /**
  * Initializes real-time Firestore listeners for a user's order history.
@@ -16,7 +16,7 @@ import { updateOrders } from '../../redux/features/account/accountSlice'; // Imp
  * 
  * @throws {Error} Throws an error if no authenticated user is found.
  */
-export const setupPaymentsListeners = (dispatch: AppDispatch): () => void => {
+export const setupOrdersListeners = (dispatch: AppDispatch): () => void => {
   // Retrieve the current authenticated user
   const user = auth.currentUser;
   

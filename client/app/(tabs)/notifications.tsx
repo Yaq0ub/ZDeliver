@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Switch, StyleSheet } from 'react-native';
 
 // Import Styles
-import styles from '../../styles/notifications.styles'
+
 
 const Notifications = () => {
   const [isEnabled, setIsEnabled] = useState(false);
@@ -24,5 +24,23 @@ const Notifications = () => {
     </View>
   );
 };
+
+
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      padding: 20,
+    },
+    title: {
+      fontSize: 24,
+      fontWeight: 'bold',
+      marginBottom: 20,
+    },
+    row: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+    },
+  });
 
 export default Notifications;

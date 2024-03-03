@@ -1,12 +1,15 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
 import { Pressable, Text} from 'react-native';
+
 import { router } from 'expo-router';
+import { auth } from "../../firebase/firebaseConfig";
 
 import Colors from '../../constants/Colors';
+import { setAuthenticatedFalse, setAuthenticatedTrue } from "../../redux/features/auth/authSlice";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 
-import { auth } from "../../firebase/firebaseConfig";
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  */
@@ -18,19 +21,10 @@ function TabBarIcon(props: {
 }
 
 export default function TabLayout() {
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
   
-  // Show landing screen if logged out
-  auth.onAuthStateChanged((user: any) => {
-    setIsLoading(false);
-    if (!user) {
-      router.replace("/landing");
-    }
-  })
-
-  // Show Loading if isLoading is true
-  if (isLoading) return <Text style={{}}> Loading...</Text>
-
+  // // Show Loading if isLoading is true
+  // //if (isLoading) return <Text style={{}}> Loading...</Text>
   return (
 
     <Tabs

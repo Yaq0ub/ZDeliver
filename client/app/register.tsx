@@ -7,7 +7,8 @@ import {
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
   Keyboard,
-  Alert
+  Alert,
+  StyleSheet
 } from "react-native";
 import React, { useState } from "react";
 import { router } from 'expo-router';
@@ -17,11 +18,14 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import { registerUser } from "../services/firebase-AUTH/registerUser";
 
 //* Styles imports */
-import styles from '../styles/register.styles'
+import Colors from "../constants/Colors";
+
+
 
 /* State management imports */
 import { setAuthenticatedTrue } from "../redux/features/auth/authSlice";
 import { useAppDispatch } from "../redux/hooks";
+import { StatusBar } from "expo-status-bar";
 
 export default function register() {
   const [email, setEmail] = useState<string>("");
@@ -58,6 +62,7 @@ export default function register() {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
     <KeyboardAwareScrollView style={styles.container}>
+      <StatusBar style={'light'}/>
       <View style={styles.header}>
         <Text style={styles.headerText}>Register</Text>
       </View>
@@ -126,3 +131,78 @@ export default function register() {
     
   );
 }
+
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      marginHorizontal: 15,
+      //marginTop: height * 0.05,
+    },
+    arrowContainer: {
+      width: 40,
+      height: 40,
+      borderTopLeftRadius: 8,
+      borderBottomRightRadius: 8,
+      backgroundColor: Colors.primary,
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    header: {
+      marginTop: 20,
+    },
+    headerText: {
+      fontSize: 36,
+      fontWeight: "bold",
+    },
+    infoContainer: {
+      marginTop: 20,
+    },
+    fieldContainer: {
+      marginTop: 20,
+    },
+    fieldText: {
+      fontSize: 16,
+      fontWeight: "bold",
+    },
+    fieldInput: {
+      marginTop: 10,
+      width: "100%",
+      height: 50,
+      backgroundColor: Colors.light,
+      borderWidth: 1,
+      borderColor: Colors.light,
+      borderRadius: 8,
+      paddingLeft: 10,
+    },
+    button: {
+      marginTop: 20,
+      width: "100%",
+      height: 50,
+      backgroundColor: Colors.primary,
+      borderRadius: 8,
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    buttonText: {
+      fontSize: 16,
+      fontWeight: "bold",
+      color: Colors.white,
+    },
+    signupGroup: {
+      flexDirection: "row",
+      marginTop: 10,
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    signup: {
+      color: Colors.primary,
+      fontSize: 16,
+      fontWeight: "bold",
+      marginRight: 5,
+    },
+    new: {
+      fontSize: 16,
+      fontWeight: "500",
+      marginRight: 5,
+    },
+  });

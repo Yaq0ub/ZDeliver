@@ -13,7 +13,8 @@ import {
   FIREBASE_PROJECT_ID,
   FIREBASE_STORAGE_BUCKET,
   FIREBASE_MESSAGING_SENDER_ID,
-  FIREBASE_APP_ID
+  FIREBASE_APP_ID,
+  GOOGLE_MAPS_API_KEY
 } from "@env"
 
 import { initializeApp } from "firebase/app";
@@ -43,8 +44,9 @@ const db = getFirestore(app)
 const auth = initializeAuth(app, {
   persistence : getReactNativePersistence(AsyncStorage)
 })
+const maps_api_key = () => { return GOOGLE_MAPS_API_KEY}
 
-export { db, auth }
+export { db, auth,  maps_api_key}
 
 // Initialize firebase
 //export const FIREBASE_APP = initializeApp(firebaseConfig);

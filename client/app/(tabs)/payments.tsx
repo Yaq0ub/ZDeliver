@@ -1,35 +1,66 @@
 import React from 'react';
-import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
-import { AntDesign } from '@expo/vector-icons';
+import {
+  View,
+  Text,
+  TouchableWithoutFeedback,
+  Keyboard,
+  KeyboardAvoidingView,
+  StyleSheet
+} from 'react-native';
+import { router } from 'expo-router';
 
-import styles from '../../styles/payment.styles'
+import PaymentsList from '../../redux/features/account/payments/PaymentsList';
 
-const Payment = () => {
-  const savedPayments: ArrayLike<any> | null | undefined = []; // Replace with your actual data
-  const paymentMethods: ArrayLike<any> | null | undefined = []; // Replace with your actual data
+import { Ionicons } from '@expo/vector-icons';
+import Colors from '../../constants/Colors';
 
+
+
+export default function Payments(){
+  
   return (
-    <View style={styles.container}>
-      <Text style={styles.header}>Saved Payments</Text>
-      <FlatList
-        data={savedPayments}
-        renderItem={({ item }) => <Text>{item}</Text>}
-        keyExtractor={(item, index) => index.toString()}
-      />
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+      <KeyboardAvoidingView
+        style={styles.fullFlex}
 
-      <Text style={styles.header}>Add Payment Method</Text>
-      <FlatList
-        data={paymentMethods}
-        renderItem={({ item }) => (
-          <TouchableOpacity style={styles.row}>
-            <Text>{item}</Text>
-            <AntDesign name="caretright" size={14} color="black" />
-          </TouchableOpacity>
-        )}
-        keyExtractor={(item, index) => index.toString()}
-      />
-    </View>
+      >
+        <View style={styles.container}>
+          {/* Saved Payments List Container */}
+          <View style={styles.header}>
+            <Text style={styles.headerText}>Saved Payments</Text>
+            <Ionicons name="add-circle" size={34} color={Colors.primary} onPress={() => { router.push('addpayment' as any) }} />
+          </View>
+          <View style={styles.listContainer}>
+            <PaymentsList />
+          </View>
+        </View>
+      </KeyboardAvoidingView>
+    </TouchableWithoutFeedback>
   );
 };
 
-export default Payment;
+const styles = StyleSheet.create({
+  fullFlex: {
+    flex: 1
+  },
+  container: {
+    flex: 1,
+    padding: 20,
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 15,
+    marginBottom: 10,
+    padding: 5,
+  },
+  headerText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+
+  },
+
+  listContainer: {
+    flex: 1,
+  }
+});

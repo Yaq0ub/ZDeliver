@@ -3,7 +3,7 @@ import { db, auth } from '../../firebase/firebaseConfig'; // Import database and
 
 import { AppDispatch } from '../../redux/store'; // Import the AppDispatch type from the Redux store setup
 import { PaymentType } from '../../constants/types'; // Import the PaymentType interface/type for TypeScript type checking
-import { updatePayments } from '../../redux/features/account/accountSlice'; // Import the updatePayments action creator from the account slice
+import { updatePayments } from '../../redux/features/account/payments/paymentsSlice'; // Import the updatePayments action creator from the account slice
 
 /**
  * Initializes real-time Firestore listeners for the payments collection associated with the current user.
