@@ -6,22 +6,25 @@ import { StatusBar } from 'expo-status-bar'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
 // Import styles
-import styles from '../styles/checkout.styles'
+import { StyleSheet} from 'react-native'
+import Colors from '../constants/Colors'
+import Shadows from '../constants/Shadows';
+import CheckoutOptionsSelector from '../redux/features/account/checkout/CheckoutOptionsSelector'
 
-const checkout = () => {
+export default function Checkout(){
   const placedRoute = () => {
     router.replace('placed' as any)
   }
   return (
     <View style={styles.container}>
-      <StatusBar style="dark" />
+      <StatusBar style="light" />
       {/* Top container for displaying the icon */}
       <View style={styles.topContainer}>
+        <CheckoutOptionsSelector/>
       </View>
 
-      {/* Bottom container for checkout button */}
+      {/* Bottom container for place order button */}
       <View style={styles.botContainer}>
-        {/* Register button */}
 
         <TouchableOpacity onPress={placedRoute}>
           <View style={styles.button}>
@@ -34,4 +37,43 @@ const checkout = () => {
   )
 }
 
-export default checkout
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: Colors.light
+    },
+    topContainer: {
+        width: '100%',
+        padding: 5,
+        justifyContent:'flex-start', // Center vertically
+        flex: 1
+      },
+      botContainer: {
+        width: '100%',
+        height: '20%',
+        //backgroundColor: '#EEE00E',
+        alignItems: 'center',
+        justifyContent: 'center',
+        // padding: paddingVerticalPercentage,
+      },
+    title: {
+        // Add title styles if needed
+    },
+    button: {
+        width: 200,
+        height: 50,
+        backgroundColor: Colors.primary,
+        borderRadius: 8,
+        justifyContent: 'center',
+        alignItems: 'center',
+        ...Shadows.medium
+    },
+    buttonText: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: Colors.light,
+    },
+});

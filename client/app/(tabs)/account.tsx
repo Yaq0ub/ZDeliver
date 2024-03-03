@@ -1,9 +1,9 @@
-import { Text, View } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { router } from 'expo-router'
 
-
-import styles from  '../../styles/account.styles';
+import Shadows from '../../constants/Shadows';
+import Colors from '../../constants/Colors';
 
 const ACCOUNT_ROUTES=[
   { label: 'Manage account', route: "/(tabs)/manage" },
@@ -39,3 +39,26 @@ export default function AccountScreen() {
     </View>
   );
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "space-between",
+    //paddingHorizontal: paddingVerticalPercentage, // Adjust container padding to prevent overflow
+    //paddingTop: paddingVerticalPercentage, // Add padding at the top if necessary
+  },
+  tab: {
+    flexDirection: 'row',
+    justifyContent: 'center', // Center content within each tab
+    alignItems: 'center', // Center items vertically within the tab
+    width: '100%', // Ensure tabs take up the full width
+    //paddingVertical: paddingVerticalPercentage, // Inner padding for tab content, adjusted for better touch area
+    backgroundColor: Colors.primary, // Use a color from the constants for consistency
+    borderRadius: 15, // Rounded corners for tabs
+    ...Shadows.medium,
+    marginBottom: 20, // Add space between tabs
+  },
+  text: {
+    textAlign: 'center', // Ensure text is centered within the tab
+    color: Colors.light
+  },
+});

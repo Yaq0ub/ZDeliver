@@ -6,6 +6,9 @@ import { db, auth } from "../../firebase/firebaseConfig";
 // Import the AddressType type definition to enforce type safety
 import { AddressType } from "../../constants/types";
 
+// Import ID generator
+import generateRandomId from "./common/generateRandomId";
+
 /**
  * Adds a new address to the authenticated user's collection of addresses in Firestore.
  * This function attempts to add a provided address object to a user-specific 'addresses'
@@ -27,6 +30,8 @@ export const addToUserAddresses = async (address: AddressType): Promise<void> =>
   if (!user) {
     throw new Error("No authenticated user found.");
   }
+  
+  address.id = generateRandomId();
 
   // Reference to the current user's document in the 'Users' collection
   const userDocRef = doc(db, 'Users', user.uid);

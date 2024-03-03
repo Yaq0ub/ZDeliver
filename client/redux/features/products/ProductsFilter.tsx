@@ -1,7 +1,9 @@
 // FilterPicker.tsx
 import React from "react";
-import {ScrollView, TouchableOpacity, Text } from "react-native";
-import styles from '../../../styles/components/ProductsFilter.styles'
+import {ScrollView, TouchableOpacity, Text, StyleSheet } from "react-native";
+
+import Colors from "../../../constants/Colors";
+
 import {useAppSelector, useAppDispatch } from '../../hooks';
 
 import { 
@@ -35,4 +37,28 @@ const ProductsFilter: React.FC = () => {
   );
 };
 
+const styles = StyleSheet.create({
+    filterContainer: {
+      flexDirection: "row",
+      alignItems: 'center',
+      margin: 4,
+      backgroundColor: Colors.light  
+    },
+    filterField: {
+      backgroundColor: Colors.grey,
+      borderRadius: 20,
+      paddingHorizontal: 15,
+      paddingVertical: 4,
+      marginRight: 10,
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    selected: {
+      backgroundColor: Colors.lightBlue,
+    },
+    filterText: {
+      color: "#000",
+      fontSize: 12
+    },
+  });
 export default ProductsFilter

@@ -1,10 +1,10 @@
-import { View, Text } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
 
 // Import styles
-import styles from '../styles/placed.styles'
 
-const placed = () => {
+
+export default function Placed(){
   return (
     <View>
       <Text>placed</Text>
@@ -12,4 +12,8 @@ const placed = () => {
   )
 }
 
-export default placed
+const styles = StyleSheet.create({
+    container:{
+
+    }
+})
