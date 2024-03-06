@@ -6,12 +6,12 @@ import {
   Keyboard,
 } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import CustomInput from '../components/CustomInput';
+import CustomInput from '../../components/CustomInput';
 import { StyleSheet } from 'react-native'
-import Colors from '../constants/Colors';
+import Colors from '../../constants/Colors';
 
-import { AddressType } from '../constants/types';
-import { addToAddressesAsync } from '../redux/features/account/addresses/addressesSlice';
+import { AddressType } from '../../constants/types';
+import { addToAddressesAsync } from '../../redux/features/account/addresses/addressesSlice';
 
 export default function AddAddress() {
   const [address, setAddress] = useState<AddressType>({

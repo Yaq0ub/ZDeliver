@@ -7,9 +7,9 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 
 // Import styles
 import { StyleSheet} from 'react-native'
-import Colors from '../constants/Colors'
-import Shadows from '../constants/Shadows';
-import CheckoutOptionsSelector from '../redux/features/account/checkout/CheckoutOptionsSelector'
+import Colors from '../../constants/Colors'
+import Shadows from '../../constants/Shadows';
+import CheckoutOptionsSelector from '../../redux/features/account/checkout/CheckoutOptionsSelector'
 
 export default function Checkout(){
   const placedRoute = () => {

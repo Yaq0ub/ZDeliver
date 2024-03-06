@@ -77,6 +77,14 @@ export default function TabLayout() {
       <Tabs.Screen name="orders" options={{ href: null,headerTitle: 'Orders',}}/>
       <Tabs.Screen name="payments"options={{ href: null,headerTitle: 'Payments',}}/>
       <Tabs.Screen name="privacy" options={{ href: null,headerTitle: 'Privacy',}}/>
+
+      <Tabs.Screen name="addaddress" options={{ href: null,headerTitle: 'Add Address',}}/>
+      <Tabs.Screen name="addpayment" options={{ href: null,headerTitle: 'Add Payment',}}/>
+      
+      <Tabs.Screen name="cart" options={{ href: null,headerTitle: 'Cart',}}/>
+      <Tabs.Screen name="checkout" options={{ href: null,headerTitle: 'Checkout',}}/>
+      <Tabs.Screen name="placed" options={{ href: null,headerTitle: 'Placed',}}/>
+      
     </Tabs>
   );
 }

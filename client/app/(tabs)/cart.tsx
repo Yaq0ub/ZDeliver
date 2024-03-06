@@ -5,11 +5,11 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 // Import styles
 import { StyleSheet} from 'react-native';
-import Colors from '../constants/Colors';
-import Shadows from '../constants/Shadows';
+import Colors from '../../constants/Colors';
+import Shadows from '../../constants/Shadows';
 
 
-import CartList from '../redux/features/products/CartList';
+import CartList from '../../redux/features/products/CartList';
 
 
 export default function CartScreen() {

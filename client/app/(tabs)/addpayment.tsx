@@ -11,14 +11,14 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { StyleSheet } from 'react-native'
 import { router } from 'expo-router';
 
-import CustomInput from '../components/CustomInput';
+import CustomInput from '../../components/CustomInput';
 
-import { addToPaymentsAsync } from '../redux/features/account/payments/paymentsSlice';
-import { useAppDispatch } from '../redux/hooks';
+import { addToPaymentsAsync } from '../../redux/features/account/payments/paymentsSlice';
+import { useAppDispatch } from '../../redux/hooks';
 
-import { PaymentType } from '../constants/types';
+import { PaymentType } from '../../constants/types';
 
-import Colors from '../constants/Colors';
+import Colors from '../../constants/Colors';
 
 
 export default function AddPayment() {
